@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>(C++)有关类的虚构函数 | 周逸的个人blog</title>
+  <title>Apache部署FLASK web(基于windows) | 周逸的个人blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概念：1.当在栈区创建一个类的对象的时候，会自动执行其构造函数，当函数代码块结束（经测试：不包括main函数结束），会自动执行其类的虚构函数。2.当在堆中new出一个类的对象的时候，会自动执行其构造函数。但是函数代码块执行完毕，并不会掉用其析构函数。其析构函数执行必须经过delete来完成。但是在继承方面，倘若new一个派生类的对象，这个对象通过基类的指针指向这个无名的对派生类对象时，delete">
+  <meta name="description" content="需求：  1.下载apache2.4(版本：win32 vc15)    apache vc15版本 2.下载mod_wsgi模块,不然pip安装不上(要与apache以及python版本对应: mod_wsgi‑4.6.5+ap24vc15‑cp37‑cp37m‑win_amd32.whl)链接：下载地址 3.python(版本：3.7 32位)  步骤：  安装( pip install mo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="(C++)有关类的虚构函数">
-<meta property="og:url" content="http://yoursite.com/2019/07/23/C-有关类的虚构函数/index.html">
+<meta property="og:title" content="Apache部署FLASK web(基于windows)">
+<meta property="og:url" content="http://yoursite.com/2019/07/23/Apache部署FLASK-web-基于windows/index.html">
 <meta property="og:site_name" content="周逸的个人blog">
-<meta property="og:description" content="概念：1.当在栈区创建一个类的对象的时候，会自动执行其构造函数，当函数代码块结束（经测试：不包括main函数结束），会自动执行其类的虚构函数。2.当在堆中new出一个类的对象的时候，会自动执行其构造函数。但是函数代码块执行完毕，并不会掉用其析构函数。其析构函数执行必须经过delete来完成。但是在继承方面，倘若new一个派生类的对象，这个对象通过基类的指针指向这个无名的对派生类对象时，delete">
+<meta property="og:description" content="需求：  1.下载apache2.4(版本：win32 vc15)    apache vc15版本 2.下载mod_wsgi模块,不然pip安装不上(要与apache以及python版本对应: mod_wsgi‑4.6.5+ap24vc15‑cp37‑cp37m‑win_amd32.whl)链接：下载地址 3.python(版本：3.7 32位)  步骤：  安装( pip install mo">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-22T16:19:09.784Z">
+<meta property="og:updated_time" content="2019-07-22T16:23:02.568Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="(C++)有关类的虚构函数">
-<meta name="twitter:description" content="概念：1.当在栈区创建一个类的对象的时候，会自动执行其构造函数，当函数代码块结束（经测试：不包括main函数结束），会自动执行其类的虚构函数。2.当在堆中new出一个类的对象的时候，会自动执行其构造函数。但是函数代码块执行完毕，并不会掉用其析构函数。其析构函数执行必须经过delete来完成。但是在继承方面，倘若new一个派生类的对象，这个对象通过基类的指针指向这个无名的对派生类对象时，delete">
+<meta name="twitter:title" content="Apache部署FLASK web(基于windows)">
+<meta name="twitter:description" content="需求：  1.下载apache2.4(版本：win32 vc15)    apache vc15版本 2.下载mod_wsgi模块,不然pip安装不上(要与apache以及python版本对应: mod_wsgi‑4.6.5+ap24vc15‑cp37‑cp37m‑win_amd32.whl)链接：下载地址 3.python(版本：3.7 32位)  步骤：  安装( pip install mo">
   
     <link rel="alternative" href="/atom.xml" title="周逸的个人blog" type="application/atom+xml">
   
@@ -150,33 +150,66 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-C-有关类的虚构函数" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Apache部署FLASK-web-基于windows" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      (C++)有关类的虚构函数
+      Apache部署FLASK web(基于windows)
     </h1>
   
 
         
-        <a href="/2019/07/23/C-有关类的虚构函数/" class="archive-article-date">
-  	<time datetime="2019-07-22T16:17:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+        <a href="/2019/07/23/Apache部署FLASK-web-基于windows/" class="archive-article-date">
+  	<time datetime="2019-07-22T16:22:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h2><p>1.当在栈区创建一个类的对象的时候，会自动执行其构造函数，当函数代码块结束（经测试：不包括main函数结束），会自动执行其类的虚构函数。<br>2.当在堆中new出一个类的对象的时候，会自动执行其构造函数。但是函数代码块执行完毕，并不会掉用其析构函数。其析构函数执行必须经过delete来完成。但是在继承方面，倘若new一个派生类的对象，这个对象通过基类的指针指向这个无名的对派生类对象时，delete这个指针释放内存并不会执行子类的析构函数，而是仅仅执行基类的析构函数，这就将导致内存泄漏了。因此解决办法是将基类的构造函数设置为虚函数，因此当你通过delete访问基类的虚构函数，先会访问子类的虚构函数，这样就能完美释放所有类的对象占用的内存了。<br>【注】：<br>经过测试，在mac上面当我用基类的指针指向派生类new的对象竟然编译无法通过，或许这是一件值得庆幸的事情。</p>
-<p>以下是测试代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//******************Base.hpp************************//</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> Base_hpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Base_hpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="title">Base</span><span class="params">()</span></span>&#123; <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Base constrctor has been started!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">    ~Base()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Base destructor has been started!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Drived</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="title">Drived</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Derived constrctor has been started!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ~Drived()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Derived destrctor has been started!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* Base_hpp */</span></span></span><br></pre></td></tr></table></figure>
+        <p><strong>需求：</strong></p>
+<ul>
+<li>1.下载apache2.4(版本：win32 vc15)    <a href="https://www.apachelounge.com/download/" target="_blank" rel="noopener">apache vc15版本</a></li>
+<li>2.下载mod_wsgi模块,不然pip安装不上(要与apache以及python版本对应: mod_wsgi‑4.6.5+ap24vc15‑cp37‑cp37m‑win_amd32.whl)<br>链接：<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#mod_wsgi" target="_blank" rel="noopener">下载地址</a></li>
+<li>3.python(版本：3.7 32位)</li>
+</ul>
+<p><strong>步骤：</strong></p>
+<ol>
+<li><p>安装( pip install mod_wsgi‑4.6.5+ap24vc15‑cp37‑cp37m‑win_amd32.whl)</p>
+</li>
+<li><p>继续执行命令： mod_wsgi-express module-config</p>
+</li>
+<li><p>将三行执行结果复制到httpd.conf中，看位置添加</p>
+</li>
+<li><p>进入Apache24/conf/httpd.conf,编辑：<br>Define SRVROOT “D:\apache\Apache24”（即改为安装目录）</p>
+</li>
+<li><p>找位置添加web app相关的路径配置等：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:5000 &gt;			//注意此处修改为需要设定的端口号</span><br><span class="line">ServerAdmin example@xx.com</span><br><span class="line">DocumentRoot C:\Users\Administrator\Desktop\webDev\optorun_helper</span><br><span class="line">&lt;Directory &quot;C:\Users\Administrator\Desktop\webDev\optorun_helper&quot;&gt;</span><br><span class="line">Order allow,deny</span><br><span class="line">Allow from all</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line">WSGIScriptAlias / C:\Users\Administrator\Desktop\webDev\optorun_helper\test.wsgi</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
 
-<p>以下是主函数</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  main.cpp</span></span><br><span class="line"><span class="comment">//  destructor_demo</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by joey on 2018/12/1.</span></span><br><span class="line"><span class="comment">//  Copyright © 2018 joey. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"Base.hpp"</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_destruc</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// insert code here...</span></span><br><span class="line">    test_destruc();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_destruc</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Base *p0 = <span class="keyword">new</span> Base();</span><br><span class="line">    Drived *p = <span class="keyword">new</span> Drived();		</span><br><span class="line">    Base *p2 = <span class="keyword">new</span> Drived();		<span class="comment">//编译报错</span></span><br><span class="line">    <span class="keyword">delete</span> p0;</span><br><span class="line">    <span class="keyword">delete</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：以上所有的路径都是flask项目的根目录，test.wsgi为具体的配置wsgi文件。</p>
+<ol start="6">
+<li>在flask项目文件夹下创建一个test.wsgi文件，然后编辑如下代码：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line"> </span><br><span class="line">#Expand Python classes path with your app&apos;s path</span><br><span class="line">sys.path.insert(0, &quot;C:\\Users\\Administrator\\Desktop\\webDev\\optorun_helper&quot;)</span><br><span class="line"> </span><br><span class="line">from app import app</span><br><span class="line"> </span><br><span class="line">#Put logging code (and imports) here ...</span><br><span class="line"> </span><br><span class="line">#Initialize WSGI app object</span><br><span class="line">application = app</span><br></pre></td></tr></table></figure>
 
+<p>注意系统路径为两个反斜杠，以防转义符号使得路径不识别（此问题解决了很久）。</p>
+<ol start="7">
+<li>让局域网用户可以访问：<br>找到apache配置文件httpd.conf，找到配置：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;directory /&gt;</span><br><span class="line">    options followsymlinks</span><br><span class="line">    allowoverride none</span><br><span class="line">    order deny,allow</span><br><span class="line">    deny from all</span><br><span class="line">&lt;/directory&gt;</span><br></pre></td></tr></table></figure>
+
+<p>将最后一个deny from all修改成allow from all</p>
+<ol start="8">
+<li>更改端口号：<br>找到配置代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#Listen 12.34.56.78:80</span><br><span class="line">Listen 5000</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>改变Listen 为防火墙已经打开的端口号，不然其他用户不能访问。</p>
 
       
 
@@ -261,7 +294,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/23/C-有关类的虚构函数/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/23/Apache部署FLASK-web-基于windows/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,18 +308,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/23/Link-list-implemented-by-C/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/07/23/Foward-list-implemented-by-C/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Link list implemented by C++
+          Foward list implemented by C++
         
       </div>
     </a>
   
   
-    <a href="/2019/07/22/K-fold-Cross-Validation/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">K-fold Cross Validation</div>
+    <a href="/2019/07/23/Link-list-implemented-by-C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Link list implemented by C++</div>
       <i class="icon-circle-right"></i>
     </a>
   

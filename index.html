@@ -148,6 +148,417 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Some-tips-for-vector-c" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/23/Some-tips-for-vector-c/">Some tips for vector (c++)</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/23/Some-tips-for-vector-c/" class="archive-article-date">
+  	<time datetime="2019-07-22T16:26:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Hightlight:</p>
+<ol>
+<li>支持随机访问通过操作符[]</li>
+<li>初始化不需要指定大小，尾端添加元素迅速</li>
+<li>内置函数push_back()，无push_front()</li>
+<li>vector&lt; string&gt; svec(10);//调用了默认的构造函数初始化每个元素    </li>
+</ol>
+<p>基础知识：<br>-</p>
+<ul>
+<li><p>Vector   —–&gt;&gt;&gt; 一个类模板！这点很重要。</p>
+</li>
+<li><p>Vector（类模板） 属于标准库的容器，位于&lt; vector &gt;头文件中。实际上我把它视作为一个动态数组。编译器根据模板创建类或者函数的过程称为实例化。对于类模板来说，我们通过提供一些额外的信息来制定模板到底实例化成什么样的容器。</p>
+</li>
+<li><p>vector<init> ievc    //默认初始化</init></p>
+</li>
+<li><p>vector<animals> Tiger</animals></p>
+</li>
+<li><p>vector&lt;vector<int>&gt;    file     //这个额外信息甚至可以为模板<br>关键性的概念：<br>-</int></p>
+<ul>
+<li>c++对于vector容器所生产的目的就是高效快速的添加元素（我视为对象或者一些基本的数据类型对象），因此在创建这个容器的时候并没有必要说需要去设定其size。因此大多的数的做法首先创建一个空的vector容器对象，然后在运行时期再添加元素。vector的优点是在向量的尾部添加元素十分迅速，但是在中部或者头部添加就比较慢，因为需要移动后方所有的元素。因此在vector中没有成员函数push_front()，但是在deque双端队列有push_front和push_back()。</li>
+</ul>
+</li>
+<li><p>I.    初始化：</p>
+</li>
+<li></li>
+<li></li>
+<li><p>vector<t> v1    //v1这个容器为空，不会执行任何代码<br>vector<t>    v2(v1)        //把v1容器中所有的元素全部复制给v2元素，<br>//若v1中有对象，不会再执行其构造函数<br>vector<t>    v3 = v1    //与上面等价<br>vector<t>    v5{a,b,c,d,e,f}        //用a,b,c,d,e,f这几个对象初始化    vector中的元素<br>vector<string> v6{“a”,”I am girl”,”I am a princess”}; //注意不能是小括号（）<br>vector<int> ivec(10)        //10个int元素，每个都初始化为0<br>vector<string> svec(10)        //10个string对象，每个都是空的string对象（在这里我视为执行了其默认构造函数，经测试确实也如此）<br>vector(int) v1(10)        //v1有10个元素，每个元素都为0<br>vector(string) v1(10,”Hello World”)        //container V1有10个元素，每个元素都被赋值为“Hello World”,<br>//如果元素对象的类没有重载赋值运算符“=”,则会报错.string重载了“=”运算符。<br>II. vector中一系列操作:</string></int></string></t></t></t></t></p>
+<ul>
+<li></li>
+<li><p>class  T<br>{<br>public:<br>T()<br>{<br>cout &lt;&lt; “animals class has been executed!” &lt;&lt; endl;<br>}<br>void func()<br>{</p>
+<p>}<br>}<br>T obj_1<br>vector<t> v1(10);<br>v1.push_back(obj_1);    //向container末尾添加元素（对象）<br>v1.empty();            //为空是返回1，否则返回0<br>v1.size()；        //返回container的大小(the number of element)<br>v1[5].func()        //可以用数组索引符号[]来确定索引位置，但是只能获取元素，不能添加元素</t></p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/23/Some-tips-for-vector-c/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Vector-C" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/23/Vector-C/">Vector(C++)</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/23/Vector-C/" class="archive-article-date">
+  	<time datetime="2019-07-22T16:25:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Highlight:</strong></p>
+<ol>
+<li>支持随机访问通过操作符[]</li>
+<li>声明时大小必须指定</li>
+<li>不可以增删元素</li>
+</ol>
+<p><strong>1.概念：</strong><br>    容器Array在声明时必须初始化指定其大小，不可以改变元素的个数，只能改变元素的数值。Array可以允许随机访问，指定响应的索引通过操作符[]可访问任意一个元素。<br>    以下代码为设定一个大小8个string类型的容器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;array&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	array&lt;string,8&gt; myStr = &#123; &quot;Hello&quot;, &quot;World&quot; &#125;;	//未传参数会调用string对象的默认构造函数</span><br><span class="line">	for (int i = 0; i &lt; myStr.size();i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; i &lt;&lt; &quot;: &quot; &lt;&lt; myStr[i] &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	system(&quot;pause&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/23/Vector-C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Foward-list-implemented-by-C" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/23/Foward-list-implemented-by-C/">Foward list implemented by C++</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/23/Foward-list-implemented-by-C/" class="archive-article-date">
+  	<time datetime="2019-07-22T16:24:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Concept:</strong></p>
+<ul>
+<li>Forward list 由c++ 11之后提供，官方解释为一个受限的list，不支持“后退移动”或“效率低下”的操作。需要删除元素，必须位于删除元素的前一个位置上，意味着只有直接前驱决定新的后继元素。生产出来目的应该是为了效率和个别化的需求；</li>
+<li>不支持操作符[]；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;forward_list&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	forward_list&lt;double&gt; myNum = &#123; 1, 2, 5, 3, 5.3, 1, 45, 8, 3, 3 &#125;;</span><br><span class="line">	myNum.push_front(85);</span><br><span class="line">	myNum.resize(20);	//在尾部插入20-myNum.size()个0，指的注意的是这种操作效率很低劣（array不提供resize()，其他容器几乎都会提供）</span><br><span class="line">	myNum.resize(21,9.5)		//改变元素的个数，数量增长的元素全为9.5</span><br><span class="line">	for (auto element : myNum)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%f \n&quot;,element);</span><br><span class="line">	&#125;</span><br><span class="line">	myNum.pop_front();</span><br><span class="line">	cout &lt;&lt; &quot;This is sequences after operation:&quot; &lt;&lt; endl;</span><br><span class="line">	for (auto element : myNum)	//类似于python中for语句遍历对象中的每一个元素。</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%f \n&quot;, element);</span><br><span class="line">	&#125;</span><br><span class="line">	system(&quot;pause&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上这段代码初始化了一个forward_list，并且支持头部push元素以及头部pop元素，不支持尾部的push以及pop。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/23/Foward-list-implemented-by-C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Apache部署FLASK-web-基于windows" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/23/Apache部署FLASK-web-基于windows/">Apache部署FLASK web(基于windows)</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/23/Apache部署FLASK-web-基于windows/" class="archive-article-date">
+  	<time datetime="2019-07-22T16:22:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>需求：</strong></p>
+<ul>
+<li>1.下载apache2.4(版本：win32 vc15)    <a href="https://www.apachelounge.com/download/" target="_blank" rel="noopener">apache vc15版本</a></li>
+<li>2.下载mod_wsgi模块,不然pip安装不上(要与apache以及python版本对应: mod_wsgi‑4.6.5+ap24vc15‑cp37‑cp37m‑win_amd32.whl)<br>链接：<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#mod_wsgi" target="_blank" rel="noopener">下载地址</a></li>
+<li>3.python(版本：3.7 32位)</li>
+</ul>
+<p><strong>步骤：</strong></p>
+<ol>
+<li><p>安装( pip install mod_wsgi‑4.6.5+ap24vc15‑cp37‑cp37m‑win_amd32.whl)</p>
+</li>
+<li><p>继续执行命令： mod_wsgi-express module-config</p>
+</li>
+<li><p>将三行执行结果复制到httpd.conf中，看位置添加</p>
+</li>
+<li><p>进入Apache24/conf/httpd.conf,编辑：<br>Define SRVROOT “D:\apache\Apache24”（即改为安装目录）</p>
+</li>
+<li><p>找位置添加web app相关的路径配置等：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:5000 &gt;			//注意此处修改为需要设定的端口号</span><br><span class="line">ServerAdmin example@xx.com</span><br><span class="line">DocumentRoot C:\Users\Administrator\Desktop\webDev\optorun_helper</span><br><span class="line">&lt;Directory &quot;C:\Users\Administrator\Desktop\webDev\optorun_helper&quot;&gt;</span><br><span class="line">Order allow,deny</span><br><span class="line">Allow from all</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line">WSGIScriptAlias / C:\Users\Administrator\Desktop\webDev\optorun_helper\test.wsgi</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注意：以上所有的路径都是flask项目的根目录，test.wsgi为具体的配置wsgi文件。</p>
+<ol start="6">
+<li>在flask项目文件夹下创建一个test.wsgi文件，然后编辑如下代码：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line"> </span><br><span class="line">#Expand Python classes path with your app&apos;s path</span><br><span class="line">sys.path.insert(0, &quot;C:\\Users\\Administrator\\Desktop\\webDev\\optorun_helper&quot;)</span><br><span class="line"> </span><br><span class="line">from app import app</span><br><span class="line"> </span><br><span class="line">#Put logging code (and imports) here ...</span><br><span class="line"> </span><br><span class="line">#Initialize WSGI app object</span><br><span class="line">application = app</span><br></pre></td></tr></table></figure>
+
+<p>注意系统路径为两个反斜杠，以防转义符号使得路径不识别（此问题解决了很久）。</p>
+<ol start="7">
+<li>让局域网用户可以访问：<br>找到apache配置文件httpd.conf，找到配置：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;directory /&gt;</span><br><span class="line">    options followsymlinks</span><br><span class="line">    allowoverride none</span><br><span class="line">    order deny,allow</span><br><span class="line">    deny from all</span><br><span class="line">&lt;/directory&gt;</span><br></pre></td></tr></table></figure>
+
+<p>将最后一个deny from all修改成allow from all</p>
+<ol start="8">
+<li>更改端口号：<br>找到配置代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#Listen 12.34.56.78:80</span><br><span class="line">Listen 5000</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>改变Listen 为防火墙已经打开的端口号，不然其他用户不能访问。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/23/Apache部署FLASK-web-基于windows/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Link-list-implemented-by-C" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/23/Link-list-implemented-by-C/">Link list implemented by C++</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/23/Link-list-implemented-by-C/" class="archive-article-date">
+  	<time datetime="2019-07-22T16:21:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>Fundation knowledge<br> characteristic:<br> 链表是一种由节点组成的数据结构，每个节点都包含某些信息以及指向链表中另一个节点的指针,用一个变量就能访问整个节点序列。<br>【attention】链表并不是只能通过指针实现，方法有多种，但是最灵活的实现方法是通过指针</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">//***************************intSLList.h********************************/</span><br><span class="line">#ifndef INTSLLIST_H_</span><br><span class="line">#define INTSLLIST_H_</span><br><span class="line"></span><br><span class="line">class IntSLLNode</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	IntSLLNode():next(0)&#123;&#125;;</span><br><span class="line">	IntSLLNode(int el, IntSLLNode* ptr = 0) :info(el), next(ptr)&#123;&#125;;</span><br><span class="line"></span><br><span class="line">public:	</span><br><span class="line">	int info;</span><br><span class="line">	IntSLLNode *next;</span><br><span class="line">	//	friend class IntSLLList;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class IntSLLList</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	IntSLLList():head(0), tail(0)&#123;&#125;;</span><br><span class="line">	void addToHead(int el);</span><br><span class="line">	void addToTail(int el);</span><br><span class="line">	int deleteFromHead();	//delete node and return its values</span><br><span class="line">	int deleteFromTail();</span><br><span class="line">	void deleteNode(int el);	</span><br><span class="line">	bool isInList(int el);	//judge whether the node is in the linked list</span><br><span class="line">private:</span><br><span class="line">	IntSLLNode *head,*tail;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line">//********************************initSLList.cpp***********************************//</span><br><span class="line">#include &quot;intSLList.h&quot;</span><br><span class="line"></span><br><span class="line">void IntSLLList::addToHead(int el)</span><br><span class="line">&#123;</span><br><span class="line">	head = new IntSLLNode(el,head);	//头部指针移位</span><br><span class="line">	if (tail == 0)</span><br><span class="line">	&#123;</span><br><span class="line">		tail = head;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void IntSLLList::addToTail(int el)</span><br><span class="line">&#123;	</span><br><span class="line">	if (tail == 0)</span><br><span class="line">	&#123;</span><br><span class="line">		tail = new IntSLLNode(el);</span><br><span class="line">		head = tail;</span><br><span class="line">	&#125;</span><br><span class="line">	tail-&gt;next = new IntSLLNode(el);</span><br><span class="line">	tail = tail-&gt;next;		//尾部指针移位</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int IntSLLList::deleteFromHead()</span><br><span class="line">&#123;	</span><br><span class="line">	int el = head-&gt;info;</span><br><span class="line">	IntSLLNode *tmp = head-&gt;next; //create a temporary variable to save second node</span><br><span class="line">	if (head == tail)</span><br><span class="line">	&#123;</span><br><span class="line">		head = tail = 0;</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		delete head;	//here just delete data, the point name still exists;  </span><br><span class="line">	&#125;</span><br><span class="line">	head = tmp;</span><br><span class="line">	return el;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int IntSLLList::deleteFromTail()</span><br><span class="line">&#123;</span><br><span class="line">	int el = tail-&gt;info;</span><br><span class="line">	if (tail == head)</span><br><span class="line">	&#123;</span><br><span class="line">		tail = head = 0;</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		for (IntSLLNode *i = head; i != tail;i=i-&gt;next)</span><br><span class="line">		&#123;</span><br><span class="line">			if (i-&gt;next == tail)</span><br><span class="line">			&#123;	</span><br><span class="line">				IntSLLNode *tmp = tail;</span><br><span class="line">				tail = i;	//tail points to second last node</span><br><span class="line">				delete tmp;	//delete last node</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return el;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void IntSLLList::deleteNode(int el)</span><br><span class="line">&#123;</span><br><span class="line">	if (head!=0)</span><br><span class="line">	&#123;</span><br><span class="line">		if (tail == head &amp;&amp; head-&gt;info == el)	//linked list only has one node and is be selected</span><br><span class="line">		&#123;</span><br><span class="line">			delete head;</span><br><span class="line">			head = tail = 0;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			IntSLLNode *pred;</span><br><span class="line">			for (pred = head; pred != tail;pred=pred-&gt;next)</span><br><span class="line">			&#123;</span><br><span class="line">				if (pred-&gt;info == el &amp;&amp; pred == head)		//first node</span><br><span class="line">				&#123;</span><br><span class="line">					IntSLLNode *tmp = head-&gt;next;</span><br><span class="line">					delete head;</span><br><span class="line">					head = tmp;</span><br><span class="line">				&#125;</span><br><span class="line">				else if (pred-&gt;next-&gt;info==el &amp;&amp; pred-&gt;next == tail)	//last node</span><br><span class="line">				&#123;</span><br><span class="line">					tail = pred;</span><br><span class="line">					delete tail-&gt;next;</span><br><span class="line">					tail-&gt;next = 0;</span><br><span class="line">				&#125;</span><br><span class="line">				else</span><br><span class="line">				&#123;</span><br><span class="line">					if (pred-&gt;next-&gt;info == el)		//node among the list</span><br><span class="line">					&#123;</span><br><span class="line">						IntSLLNode *tmp = pred-&gt;next-&gt;next;</span><br><span class="line">						delete pred-&gt;next;</span><br><span class="line">						pred-&gt;next = tmp;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool IntSLLList::isInList(int el)</span><br><span class="line">&#123;</span><br><span class="line">	IntSLLNode *tmp = head;</span><br><span class="line">	for (tmp; tmp != tail-&gt;next; tmp = tmp-&gt;next)</span><br><span class="line">	&#123;</span><br><span class="line">		if (tmp-&gt;info == el)</span><br><span class="line">		&#123;</span><br><span class="line">			return true;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">//******************************main.cpp*****************************************//</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &quot;intSLList.h&quot;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;	</span><br><span class="line">	</span><br><span class="line">	//primary realization single linked list </span><br><span class="line">	IntSLLNode *head = new IntSLLNode(10);</span><br><span class="line">	head-&gt;next = new IntSLLNode(20);</span><br><span class="line">	head-&gt;next-&gt;next = new IntSLLNode(30);</span><br><span class="line">	head-&gt;next-&gt;next-&gt;next = new IntSLLNode(40);</span><br><span class="line"></span><br><span class="line">	//create a new class to operate single linked list</span><br><span class="line">	IntSLLList my_list;</span><br><span class="line">	my_list.addToHead(20);</span><br><span class="line">	my_list.addToHead(10);</span><br><span class="line">	my_list.addToTail(30);</span><br><span class="line">	my_list.addToTail(40);</span><br><span class="line">	my_list.deleteNode(30);</span><br><span class="line">	if (my_list.isInList(40))</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;数据存在&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;数据不存在&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/23/Link-list-implemented-by-C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-C-有关类的虚构函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

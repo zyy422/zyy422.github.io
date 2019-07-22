@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>(C++)有关类的虚构函数 | 周逸的个人blog</title>
+  <title>Vector(C++) | 周逸的个人blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概念：1.当在栈区创建一个类的对象的时候，会自动执行其构造函数，当函数代码块结束（经测试：不包括main函数结束），会自动执行其类的虚构函数。2.当在堆中new出一个类的对象的时候，会自动执行其构造函数。但是函数代码块执行完毕，并不会掉用其析构函数。其析构函数执行必须经过delete来完成。但是在继承方面，倘若new一个派生类的对象，这个对象通过基类的指针指向这个无名的对派生类对象时，delete">
+  <meta name="description" content="Highlight:  支持随机访问通过操作符[] 声明时大小必须指定 不可以增删元素  1.概念：    容器Array在声明时必须初始化指定其大小，不可以改变元素的个数，只能改变元素的数值。Array可以允许随机访问，指定响应的索引通过操作符[]可访问任意一个元素。    以下代码为设定一个大小8个string类型的容器： 1234567891011121314#include &amp;lt;arr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="(C++)有关类的虚构函数">
-<meta property="og:url" content="http://yoursite.com/2019/07/23/C-有关类的虚构函数/index.html">
+<meta property="og:title" content="Vector(C++)">
+<meta property="og:url" content="http://yoursite.com/2019/07/23/Vector-C/index.html">
 <meta property="og:site_name" content="周逸的个人blog">
-<meta property="og:description" content="概念：1.当在栈区创建一个类的对象的时候，会自动执行其构造函数，当函数代码块结束（经测试：不包括main函数结束），会自动执行其类的虚构函数。2.当在堆中new出一个类的对象的时候，会自动执行其构造函数。但是函数代码块执行完毕，并不会掉用其析构函数。其析构函数执行必须经过delete来完成。但是在继承方面，倘若new一个派生类的对象，这个对象通过基类的指针指向这个无名的对派生类对象时，delete">
+<meta property="og:description" content="Highlight:  支持随机访问通过操作符[] 声明时大小必须指定 不可以增删元素  1.概念：    容器Array在声明时必须初始化指定其大小，不可以改变元素的个数，只能改变元素的数值。Array可以允许随机访问，指定响应的索引通过操作符[]可访问任意一个元素。    以下代码为设定一个大小8个string类型的容器： 1234567891011121314#include &amp;lt;arr">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-22T16:19:09.784Z">
+<meta property="og:updated_time" content="2019-07-22T16:25:20.157Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="(C++)有关类的虚构函数">
-<meta name="twitter:description" content="概念：1.当在栈区创建一个类的对象的时候，会自动执行其构造函数，当函数代码块结束（经测试：不包括main函数结束），会自动执行其类的虚构函数。2.当在堆中new出一个类的对象的时候，会自动执行其构造函数。但是函数代码块执行完毕，并不会掉用其析构函数。其析构函数执行必须经过delete来完成。但是在继承方面，倘若new一个派生类的对象，这个对象通过基类的指针指向这个无名的对派生类对象时，delete">
+<meta name="twitter:title" content="Vector(C++)">
+<meta name="twitter:description" content="Highlight:  支持随机访问通过操作符[] 声明时大小必须指定 不可以增删元素  1.概念：    容器Array在声明时必须初始化指定其大小，不可以改变元素的个数，只能改变元素的数值。Array可以允许随机访问，指定响应的索引通过操作符[]可访问任意一个元素。    以下代码为设定一个大小8个string类型的容器： 1234567891011121314#include &amp;lt;arr">
   
     <link rel="alternative" href="/atom.xml" title="周逸的个人blog" type="application/atom+xml">
   
@@ -150,32 +150,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-C-有关类的虚构函数" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Vector-C" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      (C++)有关类的虚构函数
+      Vector(C++)
     </h1>
   
 
         
-        <a href="/2019/07/23/C-有关类的虚构函数/" class="archive-article-date">
-  	<time datetime="2019-07-22T16:17:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+        <a href="/2019/07/23/Vector-C/" class="archive-article-date">
+  	<time datetime="2019-07-22T16:25:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h2><p>1.当在栈区创建一个类的对象的时候，会自动执行其构造函数，当函数代码块结束（经测试：不包括main函数结束），会自动执行其类的虚构函数。<br>2.当在堆中new出一个类的对象的时候，会自动执行其构造函数。但是函数代码块执行完毕，并不会掉用其析构函数。其析构函数执行必须经过delete来完成。但是在继承方面，倘若new一个派生类的对象，这个对象通过基类的指针指向这个无名的对派生类对象时，delete这个指针释放内存并不会执行子类的析构函数，而是仅仅执行基类的析构函数，这就将导致内存泄漏了。因此解决办法是将基类的构造函数设置为虚函数，因此当你通过delete访问基类的虚构函数，先会访问子类的虚构函数，这样就能完美释放所有类的对象占用的内存了。<br>【注】：<br>经过测试，在mac上面当我用基类的指针指向派生类new的对象竟然编译无法通过，或许这是一件值得庆幸的事情。</p>
-<p>以下是测试代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//******************Base.hpp************************//</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> Base_hpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Base_hpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="title">Base</span><span class="params">()</span></span>&#123; <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Base constrctor has been started!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">    ~Base()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Base destructor has been started!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Drived</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="title">Drived</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Derived constrctor has been started!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ~Drived()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Derived destrctor has been started!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* Base_hpp */</span></span></span><br></pre></td></tr></table></figure>
-
-<p>以下是主函数</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  main.cpp</span></span><br><span class="line"><span class="comment">//  destructor_demo</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by joey on 2018/12/1.</span></span><br><span class="line"><span class="comment">//  Copyright © 2018 joey. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"Base.hpp"</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_destruc</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// insert code here...</span></span><br><span class="line">    test_destruc();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_destruc</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Base *p0 = <span class="keyword">new</span> Base();</span><br><span class="line">    Drived *p = <span class="keyword">new</span> Drived();		</span><br><span class="line">    Base *p2 = <span class="keyword">new</span> Drived();		<span class="comment">//编译报错</span></span><br><span class="line">    <span class="keyword">delete</span> p0;</span><br><span class="line">    <span class="keyword">delete</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><strong>Highlight:</strong></p>
+<ol>
+<li>支持随机访问通过操作符[]</li>
+<li>声明时大小必须指定</li>
+<li>不可以增删元素</li>
+</ol>
+<p><strong>1.概念：</strong><br>    容器Array在声明时必须初始化指定其大小，不可以改变元素的个数，只能改变元素的数值。Array可以允许随机访问，指定响应的索引通过操作符[]可访问任意一个元素。<br>    以下代码为设定一个大小8个string类型的容器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;array&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	array&lt;string,8&gt; myStr = &#123; &quot;Hello&quot;, &quot;World&quot; &#125;;	//未传参数会调用string对象的默认构造函数</span><br><span class="line">	for (int i = 0; i &lt; myStr.size();i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; i &lt;&lt; &quot;: &quot; &lt;&lt; myStr[i] &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	system(&quot;pause&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -261,7 +263,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/23/C-有关类的虚构函数/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/23/Vector-C/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,18 +277,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/23/Link-list-implemented-by-C/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/07/23/Some-tips-for-vector-c/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Link list implemented by C++
+          Some tips for vector (c++)
         
       </div>
     </a>
   
   
-    <a href="/2019/07/22/K-fold-Cross-Validation/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">K-fold Cross Validation</div>
+    <a href="/2019/07/23/Foward-list-implemented-by-C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Foward list implemented by C++</div>
       <i class="icon-circle-right"></i>
     </a>
   

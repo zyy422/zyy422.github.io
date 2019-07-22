@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>周逸的个人blog</title>
+  <title>K-fold Cross Validation | 周逸的个人blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="长短时记忆网络(Long short-term memory network)*LSTM出现的原因：  有用的信息有大有小，有长又短，循环神经网络性能收到限制。  *LSTM的作用： 依靠一些“门”的结构让信息有选择性的影响循环神经网络中每个时刻的状态">
+  <meta name="description" content="###交叉验证后概念：  将原始数据（dataset）进行分组，一部分做为训练集来训练模型，另一部分做为测试集来评价模型。  使用优点：  1.交叉验证用于评估模型的预测性能，尤其是训练好的模型在新数据上的表现，可以在一定程度上减小过拟合。 2.可以从有限的数据中获取尽可能多的有效信息。  k-fold cross validation method:  不重复抽样将原始数据随机分为 k 份。 每">
 <meta property="og:type" content="article">
-<meta property="og:title" content="周逸的个人blog">
-<meta property="og:url" content="http://yoursite.com/2019/07/22/The-long-short-term-memory-network-study-notes/index.html">
+<meta property="og:title" content="K-fold Cross Validation">
+<meta property="og:url" content="http://yoursite.com/2019/07/22/K-fold-Cross-Validation/index.html">
 <meta property="og:site_name" content="周逸的个人blog">
-<meta property="og:description" content="长短时记忆网络(Long short-term memory network)*LSTM出现的原因：  有用的信息有大有小，有长又短，循环神经网络性能收到限制。  *LSTM的作用： 依靠一些“门”的结构让信息有选择性的影响循环神经网络中每个时刻的状态">
+<meta property="og:description" content="###交叉验证后概念：  将原始数据（dataset）进行分组，一部分做为训练集来训练模型，另一部分做为测试集来评价模型。  使用优点：  1.交叉验证用于评估模型的预测性能，尤其是训练好的模型在新数据上的表现，可以在一定程度上减小过拟合。 2.可以从有限的数据中获取尽可能多的有效信息。  k-fold cross validation method:  不重复抽样将原始数据随机分为 k 份。 每">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-22T15:07:55.502Z">
+<meta property="og:updated_time" content="2019-07-22T15:30:55.149Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="周逸的个人blog">
-<meta name="twitter:description" content="长短时记忆网络(Long short-term memory network)*LSTM出现的原因：  有用的信息有大有小，有长又短，循环神经网络性能收到限制。  *LSTM的作用： 依靠一些“门”的结构让信息有选择性的影响循环神经网络中每个时刻的状态">
+<meta name="twitter:title" content="K-fold Cross Validation">
+<meta name="twitter:description" content="###交叉验证后概念：  将原始数据（dataset）进行分组，一部分做为训练集来训练模型，另一部分做为测试集来评价模型。  使用优点：  1.交叉验证用于评估模型的预测性能，尤其是训练好的模型在新数据上的表现，可以在一定程度上减小过拟合。 2.可以从有限的数据中获取尽可能多的有效信息。  k-fold cross validation method:  不重复抽样将原始数据随机分为 k 份。 每">
   
     <link rel="alternative" href="/atom.xml" title="周逸的个人blog" type="application/atom+xml">
   
@@ -150,16 +150,44 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-The-long-short-term-memory-network-study-notes" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-K-fold-Cross-Validation" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      K-fold Cross Validation
+    </h1>
+  
+
+        
+        <a href="/2019/07/22/K-fold-Cross-Validation/" class="archive-article-date">
+  	<time datetime="2019-07-22T15:29:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="长短时记忆网络-Long-short-term-memory-network"><a href="#长短时记忆网络-Long-short-term-memory-network" class="headerlink" title="长短时记忆网络(Long short-term memory network)"></a>长短时记忆网络(Long short-term memory network)</h1><p>*LSTM出现的原因：</p>
+        <p>###交叉验证后概念：</p>
 <ul>
-<li>有用的信息有大有小，有长又短，循环神经网络性能收到限制。</li>
+<li>将原始数据（dataset）进行分组，一部分做为训练集来训练模型，另一部分做为测试集来评价模型。</li>
 </ul>
-<p>*LSTM的作用：<br> 依靠一些“门”的结构让信息有选择性的影响循环神经网络中每个时刻的状态</p>
+<p><strong>使用优点</strong>：</p>
+<ul>
+<li>1.交叉验证用于评估模型的预测性能，尤其是训练好的模型在新数据上的表现，可以在一定程度上减小过拟合。</li>
+<li>2.可以从有限的数据中获取尽可能多的有效信息。</li>
+</ul>
+<p>k-fold cross validation method:</p>
+<ol>
+<li>不重复抽样将原始数据随机分为 k 份。</li>
+<li>每一次挑选其中 1 份作为测试集，剩余 k-1 份作为训练集用于模型训练。</li>
+<li>重复第二步 k 次，这样每个子集都有一次机会作为测试集，其余机会作为训练集。</li>
+<li>在每个训练集上训练后得到一个模型在每个训练集上训练后得到一个模型</li>
+<li>用这个模型在相应的测试集上测试，计算并保存模型的评估指标</li>
+<li>计算 k 组测试结果的平均值作为模型精度的估计，并作为当前 k 折交叉验证下模型的性能指标</li>
+</ol>
 
       
 
@@ -244,7 +272,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/22/The-long-short-term-memory-network-study-notes/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/22/K-fold-Cross-Validation/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -259,8 +287,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2019/07/22/我的个人简历/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的个人简历</div>
+    <a href="/2019/07/22/The-long-short-term-memory-network-study-notes-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">The long short-term memory network (study notes)</div>
       <i class="icon-circle-right"></i>
     </a>
   

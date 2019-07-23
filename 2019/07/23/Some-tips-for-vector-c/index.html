@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Some tips for vector (c++) | 周逸的个人blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hightlight:  支持随机访问通过操作符[] 初始化不需要指定大小，尾端添加元素迅速 内置函数push_back()，无push_front() vector&amp;lt; string&amp;gt; svec(10);//调用了默认的构造函数初始化每个元素      基础知识：-  Vector   —–&amp;gt;&amp;gt;&amp;gt; 一个类模板！这点很重要。  Vector（类模板） 属于标准库的容器，">
+  <meta name="description" content="Hightlight: 支持随机访问通过操作符[] 初始化不需要指定大小，尾端添加元素迅速 内置函数push_back()，无push_front() vector&amp;lt; string&amp;gt; svec(10);//调用了默认的构造函数初始化每个元素      基础知识：-  Vector   —–&amp;gt;&amp;gt;&amp;gt; 一个类模板！这点很重要。  Vector（类模板） 属于标准库的容器，位">
+<meta name="keywords" content="c++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Some tips for vector (c++)">
 <meta property="og:url" content="http://yoursite.com/2019/07/23/Some-tips-for-vector-c/index.html">
 <meta property="og:site_name" content="周逸的个人blog">
-<meta property="og:description" content="Hightlight:  支持随机访问通过操作符[] 初始化不需要指定大小，尾端添加元素迅速 内置函数push_back()，无push_front() vector&amp;lt; string&amp;gt; svec(10);//调用了默认的构造函数初始化每个元素      基础知识：-  Vector   —–&amp;gt;&amp;gt;&amp;gt; 一个类模板！这点很重要。  Vector（类模板） 属于标准库的容器，">
+<meta property="og:description" content="Hightlight: 支持随机访问通过操作符[] 初始化不需要指定大小，尾端添加元素迅速 内置函数push_back()，无push_front() vector&amp;lt; string&amp;gt; svec(10);//调用了默认的构造函数初始化每个元素      基础知识：-  Vector   —–&amp;gt;&amp;gt;&amp;gt; 一个类模板！这点很重要。  Vector（类模板） 属于标准库的容器，位">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-22T16:26:51.059Z">
+<meta property="og:updated_time" content="2019-07-23T00:55:47.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Some tips for vector (c++)">
-<meta name="twitter:description" content="Hightlight:  支持随机访问通过操作符[] 初始化不需要指定大小，尾端添加元素迅速 内置函数push_back()，无push_front() vector&amp;lt; string&amp;gt; svec(10);//调用了默认的构造函数初始化每个元素      基础知识：-  Vector   —–&amp;gt;&amp;gt;&amp;gt; 一个类模板！这点很重要。  Vector（类模板） 属于标准库的容器，">
+<meta name="twitter:description" content="Hightlight: 支持随机访问通过操作符[] 初始化不需要指定大小，尾端添加元素迅速 内置函数push_back()，无push_front() vector&amp;lt; string&amp;gt; svec(10);//调用了默认的构造函数初始化每个元素      基础知识：-  Vector   —–&amp;gt;&amp;gt;&amp;gt; 一个类模板！这点很重要。  Vector（类模板） 属于标准库的容器，位">
   
     <link rel="alternative" href="/atom.xml" title="周逸的个人blog" type="application/atom+xml">
   
@@ -170,14 +171,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Hightlight:</p>
-<ol>
+        <h3 id="Hightlight"><a href="#Hightlight" class="headerlink" title="Hightlight:"></a>Hightlight:</h3><ol>
 <li>支持随机访问通过操作符[]</li>
 <li>初始化不需要指定大小，尾端添加元素迅速</li>
 <li>内置函数push_back()，无push_front()</li>
 <li>vector&lt; string&gt; svec(10);//调用了默认的构造函数初始化每个元素    </li>
 </ol>
-<p>基础知识：<br>-</p>
+<h3 id="基础知识："><a href="#基础知识：" class="headerlink" title="基础知识："></a>基础知识：</h3><p>-</p>
 <ul>
 <li><p>Vector   —–&gt;&gt;&gt; 一个类模板！这点很重要。</p>
 </li>
@@ -187,19 +187,28 @@
 </li>
 <li><p>vector<animals> Tiger</animals></p>
 </li>
-<li><p>vector&lt;vector<int>&gt;    file     //这个额外信息甚至可以为模板<br>关键性的概念：<br>-</int></p>
+<li><p>vector&lt;vector<int>&gt;    file     //这个额外信息甚至可以为模板</int></p>
+<h3 id="关键性的概念："><a href="#关键性的概念：" class="headerlink" title="关键性的概念："></a>关键性的概念：</h3><p>-</p>
 <ul>
 <li>c++对于vector容器所生产的目的就是高效快速的添加元素（我视为对象或者一些基本的数据类型对象），因此在创建这个容器的时候并没有必要说需要去设定其size。因此大多的数的做法首先创建一个空的vector容器对象，然后在运行时期再添加元素。vector的优点是在向量的尾部添加元素十分迅速，但是在中部或者头部添加就比较慢，因为需要移动后方所有的元素。因此在vector中没有成员函数push_front()，但是在deque双端队列有push_front和push_back()。</li>
 </ul>
 </li>
-<li><p>I.    初始化：</p>
-</li>
-<li></li>
-<li></li>
-<li><p>vector<t> v1    //v1这个容器为空，不会执行任何代码<br>vector<t>    v2(v1)        //把v1容器中所有的元素全部复制给v2元素，<br>//若v1中有对象，不会再执行其构造函数<br>vector<t>    v3 = v1    //与上面等价<br>vector<t>    v5{a,b,c,d,e,f}        //用a,b,c,d,e,f这几个对象初始化    vector中的元素<br>vector<string> v6{“a”,”I am girl”,”I am a princess”}; //注意不能是小括号（）<br>vector<int> ivec(10)        //10个int元素，每个都初始化为0<br>vector<string> svec(10)        //10个string对象，每个都是空的string对象（在这里我视为执行了其默认构造函数，经测试确实也如此）<br>vector(int) v1(10)        //v1有10个元素，每个元素都为0<br>vector(string) v1(10,”Hello World”)        //container V1有10个元素，每个元素都被赋值为“Hello World”,<br>//如果元素对象的类没有重载赋值运算符“=”,则会报错.string重载了“=”运算符。<br>II. vector中一系列操作:</string></int></string></t></t></t></t></p>
+<li><p><strong>I.    初始化</strong>：</p>
+<pre><code>  vector&lt;T&gt; v1    //v1这个容器为空，不会执行任何代码
+  vector&lt;T&gt;    v2(v1)        //把v1容器中所有的元素全部复制给v2元素，
+  //若v1中有对象，不会再执行其构造函数
+  vector&lt;T&gt;    v3 = v1    //与上面等价
+  vector&lt;T&gt;    v5{a,b,c,d,e,f}        //用a,b,c,d,e,f这几个对象初始化    vector中的元素
+  vector&lt;string&gt; v6{&quot;a&quot;,&quot;I am girl&quot;,&quot;I am a princess&quot;}; //注意不能是小括号（）
+  vector&lt;int&gt; ivec(10)        //10个int元素，每个都初始化为0
+  vector&lt;string&gt; svec(10)        //10个string对象，每个都是空的string对象（在这里我视为执行了其默认构造函数，经测试确实也如此）
+ vector(int) v1(10)        //v1有10个元素，每个元素都为0
+ vector(string) v1(10,&quot;Hello World&quot;)        //container V1有10个元素，每个元素都被赋值为“Hello World”,
+//如果元素对象的类没有重载赋值运算符“=”,则会报错.string重载了“=”运算符。</code></pre><p>-<strong>II. vector中一系列操作</strong>:</p>
 <ul>
 <li></li>
-<li><p>class  T<br>{<br>public:<br>T()<br>{<br>cout &lt;&lt; “animals class has been executed!” &lt;&lt; endl;<br>}<br>void func()<br>{</p>
+<li><p>class  T<br>{<br>public:<br>T()<br>{</p>
+<pre><code>cout &lt;&lt; &quot;animals class has been executed!&quot; &lt;&lt; endl;</code></pre><p>}<br>void func()<br>{</p>
 <p>}<br>}<br>T obj_1<br>vector<t> v1(10);<br>v1.push_back(obj_1);    //向container末尾添加元素（对象）<br>v1.empty();            //为空是返回1，否则返回0<br>v1.size()；        //返回container的大小(the number of element)<br>v1[5].func()        //可以用数组索引符号[]来确定索引位置，但是只能获取元素，不能添加元素</t></p>
 </li>
 </ul>
@@ -239,6 +248,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -429,6 +449,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

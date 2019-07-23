@@ -6,19 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Link list implemented by C++ | 周逸的个人blog</title>
+  <title>Tag: c++ | 周逸的个人blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Fundation knowledge characteristic: 链表是一种由节点组成的数据结构，每个节点都包含某些信息以及指向链表中另一个节点的指针,用一个变量就能访问整个节点序列。【attention】链表并不是只能通过指针实现，方法有多种，但是最灵活的实现方法是通过指针  12345678910111213141516171819202122232425262728293031//*">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Link list implemented by C++">
-<meta property="og:url" content="http://yoursite.com/2019/07/23/Link-list-implemented-by-C/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="周逸的个人blog">
+<meta property="og:url" content="http://yoursite.com/tags/c/index.html">
 <meta property="og:site_name" content="周逸的个人blog">
-<meta property="og:description" content="Fundation knowledge characteristic: 链表是一种由节点组成的数据结构，每个节点都包含某些信息以及指向链表中另一个节点的指针,用一个变量就能访问整个节点序列。【attention】链表并不是只能通过指针实现，方法有多种，但是最灵活的实现方法是通过指针  12345678910111213141516171819202122232425262728293031//*">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-22T16:21:46.468Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Link list implemented by C++">
-<meta name="twitter:description" content="Fundation knowledge characteristic: 链表是一种由节点组成的数据结构，每个节点都包含某些信息以及指向链表中另一个节点的指针,用一个变量就能访问整个节点序列。【attention】链表并不是只能通过指针实现，方法有多种，但是最灵活的实现方法是通过指针  12345678910111213141516171819202122232425262728293031//*">
+<meta name="twitter:title" content="周逸的个人blog">
   
     <link rel="alternative" href="/atom.xml" title="周逸的个人blog" type="application/atom+xml">
   
@@ -150,178 +146,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Link-list-implemented-by-C" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Link list implemented by C++
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/07/23/Some-tips-for-vector-c/" class="archive-article-date">
+  	<time datetime="2019-07-22T16:26:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/07/23/Some-tips-for-vector-c/">Some tips for vector (c++)</a>
     </h1>
   
 
-        
-        <a href="/2019/07/23/Link-list-implemented-by-C/" class="archive-article-date">
-  	<time datetime="2019-07-22T16:21:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>Fundation knowledge<br> characteristic:<br> 链表是一种由节点组成的数据结构，每个节点都包含某些信息以及指向链表中另一个节点的指针,用一个变量就能访问整个节点序列。<br>【attention】链表并不是只能通过指针实现，方法有多种，但是最灵活的实现方法是通过指针</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">//***************************intSLList.h********************************/</span><br><span class="line">#ifndef INTSLLIST_H_</span><br><span class="line">#define INTSLLIST_H_</span><br><span class="line"></span><br><span class="line">class IntSLLNode</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	IntSLLNode():next(0)&#123;&#125;;</span><br><span class="line">	IntSLLNode(int el, IntSLLNode* ptr = 0) :info(el), next(ptr)&#123;&#125;;</span><br><span class="line"></span><br><span class="line">public:	</span><br><span class="line">	int info;</span><br><span class="line">	IntSLLNode *next;</span><br><span class="line">	//	friend class IntSLLList;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class IntSLLList</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">	IntSLLList():head(0), tail(0)&#123;&#125;;</span><br><span class="line">	void addToHead(int el);</span><br><span class="line">	void addToTail(int el);</span><br><span class="line">	int deleteFromHead();	//delete node and return its values</span><br><span class="line">	int deleteFromTail();</span><br><span class="line">	void deleteNode(int el);	</span><br><span class="line">	bool isInList(int el);	//judge whether the node is in the linked list</span><br><span class="line">private:</span><br><span class="line">	IntSLLNode *head,*tail;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line">//********************************initSLList.cpp***********************************//</span><br><span class="line">#include &quot;intSLList.h&quot;</span><br><span class="line"></span><br><span class="line">void IntSLLList::addToHead(int el)</span><br><span class="line">&#123;</span><br><span class="line">	head = new IntSLLNode(el,head);	//头部指针移位</span><br><span class="line">	if (tail == 0)</span><br><span class="line">	&#123;</span><br><span class="line">		tail = head;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void IntSLLList::addToTail(int el)</span><br><span class="line">&#123;	</span><br><span class="line">	if (tail == 0)</span><br><span class="line">	&#123;</span><br><span class="line">		tail = new IntSLLNode(el);</span><br><span class="line">		head = tail;</span><br><span class="line">	&#125;</span><br><span class="line">	tail-&gt;next = new IntSLLNode(el);</span><br><span class="line">	tail = tail-&gt;next;		//尾部指针移位</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int IntSLLList::deleteFromHead()</span><br><span class="line">&#123;	</span><br><span class="line">	int el = head-&gt;info;</span><br><span class="line">	IntSLLNode *tmp = head-&gt;next; //create a temporary variable to save second node</span><br><span class="line">	if (head == tail)</span><br><span class="line">	&#123;</span><br><span class="line">		head = tail = 0;</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		delete head;	//here just delete data, the point name still exists;  </span><br><span class="line">	&#125;</span><br><span class="line">	head = tmp;</span><br><span class="line">	return el;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int IntSLLList::deleteFromTail()</span><br><span class="line">&#123;</span><br><span class="line">	int el = tail-&gt;info;</span><br><span class="line">	if (tail == head)</span><br><span class="line">	&#123;</span><br><span class="line">		tail = head = 0;</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		for (IntSLLNode *i = head; i != tail;i=i-&gt;next)</span><br><span class="line">		&#123;</span><br><span class="line">			if (i-&gt;next == tail)</span><br><span class="line">			&#123;	</span><br><span class="line">				IntSLLNode *tmp = tail;</span><br><span class="line">				tail = i;	//tail points to second last node</span><br><span class="line">				delete tmp;	//delete last node</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return el;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void IntSLLList::deleteNode(int el)</span><br><span class="line">&#123;</span><br><span class="line">	if (head!=0)</span><br><span class="line">	&#123;</span><br><span class="line">		if (tail == head &amp;&amp; head-&gt;info == el)	//linked list only has one node and is be selected</span><br><span class="line">		&#123;</span><br><span class="line">			delete head;</span><br><span class="line">			head = tail = 0;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			IntSLLNode *pred;</span><br><span class="line">			for (pred = head; pred != tail;pred=pred-&gt;next)</span><br><span class="line">			&#123;</span><br><span class="line">				if (pred-&gt;info == el &amp;&amp; pred == head)		//first node</span><br><span class="line">				&#123;</span><br><span class="line">					IntSLLNode *tmp = head-&gt;next;</span><br><span class="line">					delete head;</span><br><span class="line">					head = tmp;</span><br><span class="line">				&#125;</span><br><span class="line">				else if (pred-&gt;next-&gt;info==el &amp;&amp; pred-&gt;next == tail)	//last node</span><br><span class="line">				&#123;</span><br><span class="line">					tail = pred;</span><br><span class="line">					delete tail-&gt;next;</span><br><span class="line">					tail-&gt;next = 0;</span><br><span class="line">				&#125;</span><br><span class="line">				else</span><br><span class="line">				&#123;</span><br><span class="line">					if (pred-&gt;next-&gt;info == el)		//node among the list</span><br><span class="line">					&#123;</span><br><span class="line">						IntSLLNode *tmp = pred-&gt;next-&gt;next;</span><br><span class="line">						delete pred-&gt;next;</span><br><span class="line">						pred-&gt;next = tmp;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool IntSLLList::isInList(int el)</span><br><span class="line">&#123;</span><br><span class="line">	IntSLLNode *tmp = head;</span><br><span class="line">	for (tmp; tmp != tail-&gt;next; tmp = tmp-&gt;next)</span><br><span class="line">	&#123;</span><br><span class="line">		if (tmp-&gt;info == el)</span><br><span class="line">		&#123;</span><br><span class="line">			return true;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">//******************************main.cpp*****************************************//</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &quot;intSLList.h&quot;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;	</span><br><span class="line">	</span><br><span class="line">	//primary realization single linked list </span><br><span class="line">	IntSLLNode *head = new IntSLLNode(10);</span><br><span class="line">	head-&gt;next = new IntSLLNode(20);</span><br><span class="line">	head-&gt;next-&gt;next = new IntSLLNode(30);</span><br><span class="line">	head-&gt;next-&gt;next-&gt;next = new IntSLLNode(40);</span><br><span class="line"></span><br><span class="line">	//create a new class to operate single linked list</span><br><span class="line">	IntSLLList my_list;</span><br><span class="line">	my_list.addToHead(20);</span><br><span class="line">	my_list.addToHead(10);</span><br><span class="line">	my_list.addToTail(30);</span><br><span class="line">	my_list.addToTail(40);</span><br><span class="line">	my_list.deleteNode(30);</span><br><span class="line">	if (my_list.isInList(40))</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;数据存在&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;数据不存在&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/WechatCode.jpeg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/23/Link-list-implemented-by-C/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/07/23/Apache部署FLASK-web-基于windows/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Apache部署FLASK web(基于windows)
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/07/23/C-有关类的虚构函数/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">(C++)有关类的虚构函数</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -344,9 +222,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

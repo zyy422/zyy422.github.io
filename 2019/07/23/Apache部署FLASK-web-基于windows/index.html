@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="周逸的个人blog">
 <meta property="og:description" content="需求：  1.下载apache2.4(版本：win32 vc15)    apache vc15版本 2.下载mod_wsgi模块,不然pip安装不上(要与apache以及python版本对应: mod_wsgi‑4.6.5+ap24vc15‑cp37‑cp37m‑win_amd32.whl)链接：下载地址 3.python(版本：3.7 32位)  步骤：  1.安装( pip install">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-23T01:10:58.669Z">
+<meta property="og:updated_time" content="2019-07-23T01:12:42.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache部署FLASK web(基于windows)">
 <meta name="twitter:description" content="需求：  1.下载apache2.4(版本：win32 vc15)    apache vc15版本 2.下载mod_wsgi模块,不然pip安装不上(要与apache以及python版本对应: mod_wsgi‑4.6.5+ap24vc15‑cp37‑cp37m‑win_amd32.whl)链接：下载地址 3.python(版本：3.7 32位)  步骤：  1.安装( pip install">
@@ -195,7 +195,7 @@
 <ul>
 <li>6.在flask项目文件夹下创建一个test.wsgi文件，然后编辑如下代码：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line"> </span><br><span class="line">#Expand Python classes path with your app&apos;s path</span><br><span class="line">sys.path.insert(0, &quot;C:\\Users\\Administrator\\Desktop\\webDev\\optorun_helper&quot;)</span><br><span class="line"> </span><br><span class="line">from app import app</span><br><span class="line"> </span><br><span class="line">#Put logging code (and imports) here ...</span><br><span class="line"> </span><br><span class="line">#Initialize WSGI app object</span><br><span class="line">application = app</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"> </span><br><span class="line"><span class="comment">#Expand Python classes path with your app's path</span></span><br><span class="line">sys.path.insert(<span class="number">0</span>, <span class="string">"C:\\Users\\Administrator\\Desktop\\webDev\\optorun_helper"</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">from</span> app <span class="keyword">import</span> app</span><br><span class="line"> </span><br><span class="line"><span class="comment">#Put logging code (and imports) here ...</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#Initialize WSGI app object</span></span><br><span class="line">application = app</span><br></pre></td></tr></table></figure>
 
 <p>注意系统路径为两个反斜杠，以防转义符号使得路径不识别（此问题解决了很久）。</p>
 <ul>
@@ -446,6 +446,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">c++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++; STL; Iterator</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Vector(C++) | 周逸的个人blog</title>
+  <title>The knowledge of Iterator | 周逸的个人blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Highlight:  支持随机访问通过操作符[] 声明时大小必须指定 不可以增删元素  1.概念：    容器Array在声明时必须初始化指定其大小，不可以改变元素的个数，只能改变元素的数值。Array可以允许随机访问，指定响应的索引通过操作符[]可访问任意一个元素。    以下代码为设定一个大小8个string类型的容器： 1234567891011121314#include &amp;lt;arr">
+  <meta name="description" content="一. 知识定位与基础 (Fundation and Positioning of Knowledge) 迭代器属于标准库中General范畴下，即所有标准库Containers都可以使用Iterator。其生产出来的目的因为只有少数几种Containers才支持下标运算符&amp;quot;[]&amp;quot;,虽然&amp;lt; string &amp;gt;并不属于Containers的范畴，但是其同样支持iterat">
+<meta name="keywords" content="c++; STL; Iterator">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vector(C++)">
-<meta property="og:url" content="http://yoursite.com/2019/07/23/Vector-C/index.html">
+<meta property="og:title" content="The knowledge of Iterator">
+<meta property="og:url" content="http://yoursite.com/2019/07/23/The-knowledge-of-Iterator/index.html">
 <meta property="og:site_name" content="周逸的个人blog">
-<meta property="og:description" content="Highlight:  支持随机访问通过操作符[] 声明时大小必须指定 不可以增删元素  1.概念：    容器Array在声明时必须初始化指定其大小，不可以改变元素的个数，只能改变元素的数值。Array可以允许随机访问，指定响应的索引通过操作符[]可访问任意一个元素。    以下代码为设定一个大小8个string类型的容器： 1234567891011121314#include &amp;lt;arr">
+<meta property="og:description" content="一. 知识定位与基础 (Fundation and Positioning of Knowledge) 迭代器属于标准库中General范畴下，即所有标准库Containers都可以使用Iterator。其生产出来的目的因为只有少数几种Containers才支持下标运算符&amp;quot;[]&amp;quot;,虽然&amp;lt; string &amp;gt;并不属于Containers的范畴，但是其同样支持iterat">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-23T01:06:26.376Z">
+<meta property="og:updated_time" content="2019-07-23T01:17:39.565Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vector(C++)">
-<meta name="twitter:description" content="Highlight:  支持随机访问通过操作符[] 声明时大小必须指定 不可以增删元素  1.概念：    容器Array在声明时必须初始化指定其大小，不可以改变元素的个数，只能改变元素的数值。Array可以允许随机访问，指定响应的索引通过操作符[]可访问任意一个元素。    以下代码为设定一个大小8个string类型的容器： 1234567891011121314#include &amp;lt;arr">
+<meta name="twitter:title" content="The knowledge of Iterator">
+<meta name="twitter:description" content="一. 知识定位与基础 (Fundation and Positioning of Knowledge) 迭代器属于标准库中General范畴下，即所有标准库Containers都可以使用Iterator。其生产出来的目的因为只有少数几种Containers才支持下标运算符&amp;quot;[]&amp;quot;,虽然&amp;lt; string &amp;gt;并不属于Containers的范畴，但是其同样支持iterat">
   
     <link rel="alternative" href="/atom.xml" title="周逸的个人blog" type="application/atom+xml">
   
@@ -150,36 +151,37 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Vector-C" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-The-knowledge-of-Iterator" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Vector(C++)
+      The knowledge of Iterator
     </h1>
   
 
         
-        <a href="/2019/07/23/Vector-C/" class="archive-article-date">
-  	<time datetime="2019-07-22T16:25:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+        <a href="/2019/07/23/The-knowledge-of-Iterator/" class="archive-article-date">
+  	<time datetime="2019-07-23T01:14:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>Highlight:</strong></p>
-<ol>
-<li>支持随机访问通过操作符[]</li>
-<li>声明时大小必须指定</li>
-<li>不可以增删元素</li>
-</ol>
-<p><strong>1.概念：</strong><br>    容器Array在声明时必须初始化指定其大小，不可以改变元素的个数，只能改变元素的数值。Array可以允许随机访问，指定响应的索引通过操作符[]可访问任意一个元素。<br>    以下代码为设定一个大小8个string类型的容器：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;array&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">array</span>&lt;<span class="built_in">string</span>,8&gt; myStr = &#123; <span class="string">"Hello"</span>, <span class="string">"World"</span> &#125;;	<span class="comment">//未传参数会调用string对象的默认构造函数</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; myStr.size();i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">": "</span> &lt;&lt; myStr[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><strong>一. 知识定位与基础 (Fundation and Positioning of Knowledge)</strong></p>
+<pre><code>迭代器属于标准库中General范畴下，即所有标准库Containers都可以使用Iterator。其生产出来的目的因为只有少数几种Containers才支持下标运算符&quot;[]&quot;,</code></pre><p>虽然&lt; string &gt;并不属于Containers的范畴，但是其同样支持iterator。迭代器为容器的元素提供了间接的访问，可以从一个元素移动到另外一个元素（这点类似于指针）。</p>
+<p><strong>二.迭代器的使用</strong></p>
+<p>迭代器既可以指定其类型，也可以不指定其类型进行初始化：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; strArray(<span class="number">10</span>,<span class="string">"hello"</span>);</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;::iterator it_1 = strArray.begin();	<span class="comment">//迭代器指向容器的第一个元素</span></span><br><span class="line"><span class="keyword">auto</span> it_2 =strArray.begin();		<span class="comment">//另一种调用方式</span></span><br><span class="line">	*it_1		<span class="comment">//迭代器所指元素的引用</span></span><br><span class="line">	++it_1		<span class="comment">//迭代器指向容器下一个元素</span></span><br><span class="line">	--it_1		<span class="comment">//指向上一个元素</span></span><br><span class="line">	it_1==it_2	<span class="comment">//判断两个迭代器是否equal</span></span><br><span class="line">	it_1 != it_2	<span class="comment">//judge...</span></span><br></pre></td></tr></table></figure>
 
 
+<ul>
+<li>以下是迭代器经常用的方法：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-		<span class="comment">//将容器中的元素全部转换为大写</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;::interator it = strArray.begin(); it != strArray.end(); ++it)</span><br><span class="line">		&#123;</span><br><span class="line">			*it = <span class="built_in">toupper</span>(*it);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -213,6 +215,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++; STL; Iterator</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -263,7 +276,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/23/Vector-C/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/23/The-knowledge-of-Iterator/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -277,18 +290,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/23/Some-tips-for-vector-c/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Some tips for vector (c++)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/23/Foward-list-implemented-by-C/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Foward list implemented by C++</div>
+    <a href="/2019/07/23/Some-tips-for-vector-c/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Some tips for vector (c++)</div>
       <i class="icon-circle-right"></i>
     </a>
   

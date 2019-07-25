@@ -162,27 +162,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="The-design-model-of-Singleton"><a href="#The-design-model-of-Singleton" class="headerlink" title="The design model of Singleton"></a>The design model of Singleton</h1><h2 id="How-to-build-an-object-for-only-one-The-implemention-of-this-process-as-shown-below"><a href="#How-to-build-an-object-for-only-one-The-implemention-of-this-process-as-shown-below" class="headerlink" title="How to build an object for only one? The implemention of this process as shown below:"></a>How to build an object for only one? The implemention of this process as shown below:</h2><pre><code class="c++"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>
-<span class="class">{</span>
-<span class="keyword">public</span>:
-    <span class="function"><span class="keyword">static</span> A&amp; <span class="title">getInstance</span><span class="params">()</span></span>;
-    setup(){.....};
-<span class="keyword">private</span>:
-    A();
-    A(<span class="keyword">const</span> A&amp; rhs)
-    ...
-};
-A&amp; A::getInstance()
-{
-    <span class="keyword">static</span> A a;
-    <span class="keyword">return</span> a;
+        <h1 id="The-design-model-of-Singleton"><a href="#The-design-model-of-Singleton" class="headerlink" title="The design model of Singleton"></a>The design model of Singleton</h1><h2 id="How-to-build-an-object-for-only-one-The-implemention-of-this-process-as-shown-below"><a href="#How-to-build-an-object-for-only-one-The-implemention-of-this-process-as-shown-below" class="headerlink" title="How to build an object for only one? The implemention of this process as shown below:"></a>How to build an object for only one? The implemention of this process as shown below:</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">static</span> A&amp; <span class="title">getInstance</span><span class="params">()</span></span>;</span><br><span class="line">	setup()&#123;.....&#125;;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	A();</span><br><span class="line">	A(<span class="keyword">const</span> A&amp; rhs)</span><br><span class="line">	...</span><br><span class="line">&#125;;</span><br><span class="line">A&amp; A::getInstance()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">static</span> A a;</span><br><span class="line">	<span class="keyword">return</span> a;</span><br></pre></td></tr></table></figure>
 
-```如果想通过类只创建一个对象，将构造函数私有化即可。可是构造函数私有化意味着外接无法通过类名来创建一个对象，
-只能够通过内部的函数创建这个对象。因此这个函数的执行想要在对象创造前可用，就必须用到<span class="keyword">static</span>关键字，这个关键字
-用于类内部可以认为是函数的一种封装，我感觉有的公司可能不允许写全局的函数，因此这个函数能够在对象被创建之前即可
-生产出来。然后同时，因为<span class="keyword">static</span>关键字在类中只能有一份，因此这个对象只能创建出一份object。
-**Attention：**
-    全局函数无法调用类的私有构造函数，私有的构造函数只有类中定义的函数（接口）才可以使用。</code></pre>
+<p>如果想通过类只创建一个对象，将构造函数私有化即可。可是构造函数私有化意味着外接无法通过类名来创建一个对象，<br>只能够通过内部的函数创建这个对象。因此这个函数的执行想要在对象创造前可用，就必须用到static关键字，这个关键字<br>用于类内部可以认为是函数的一种封装，我感觉有的公司可能不允许写全局的函数，因此这个函数能够在对象被创建之前即可<br>生产出来。然后同时，因为static关键字在类中只能有一份，因此这个对象只能创建出一份object。<br><strong>Attention：</strong><br>    全局函数无法调用类的私有构造函数，私有的构造函数只有类中定义的函数（接口）才可以使用。</p>
 
       
 
@@ -1070,11 +1052,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+                <a href="javascript:void(0)" class="js-tag color2">c++; array;</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c++; array;</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">

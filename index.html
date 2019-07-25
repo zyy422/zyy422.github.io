@@ -142,6 +142,100 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-The-design-mode-of-Singleton" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/25/The-design-mode-of-Singleton/">The design mode of Singleton</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/25/The-design-mode-of-Singleton/" class="archive-article-date">
+  	<time datetime="2019-07-25T02:43:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="The-design-model-of-Singleton"><a href="#The-design-model-of-Singleton" class="headerlink" title="The design model of Singleton"></a>The design model of Singleton</h1><h2 id="How-to-build-an-object-for-only-one-The-implemention-of-this-process-as-shown-below"><a href="#How-to-build-an-object-for-only-one-The-implemention-of-this-process-as-shown-below" class="headerlink" title="How to build an object for only one? The implemention of this process as shown below:"></a>How to build an object for only one? The implemention of this process as shown below:</h2><pre><code class="c++"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>
+<span class="class">{</span>
+<span class="keyword">public</span>:
+    <span class="function"><span class="keyword">static</span> A&amp; <span class="title">getInstance</span><span class="params">()</span></span>;
+    setup(){.....};
+<span class="keyword">private</span>:
+    A();
+    A(<span class="keyword">const</span> A&amp; rhs)
+    ...
+};
+A&amp; A::getInstance()
+{
+    <span class="keyword">static</span> A a;
+    <span class="keyword">return</span> a;
+
+```如果想通过类只创建一个对象，将构造函数私有化即可。可是构造函数私有化意味着外接无法通过类名来创建一个对象，
+只能够通过内部的函数创建这个对象。因此这个函数的执行想要在对象创造前可用，就必须用到<span class="keyword">static</span>关键字，这个关键字
+用于类内部可以认为是函数的一种封装，我感觉有的公司可能不允许写全局的函数，因此这个函数能够在对象被创建之前即可
+生产出来。然后同时，因为<span class="keyword">static</span>关键字在类中只能有一份，因此这个对象只能创建出一份object。
+**Attention：**
+    全局函数无法调用类的私有构造函数，私有的构造函数只有类中定义的函数（接口）才可以使用。</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">c++,design mode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/25/The-design-mode-of-Singleton/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Some-tips-for-array" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -879,73 +973,6 @@
 
 
   
-    <article id="post-The-long-short-term-memory-network-study-notes-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/22/The-long-short-term-memory-network-study-notes-1/">The long short-term memory network (study notes)</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/22/The-long-short-term-memory-network-study-notes-1/" class="archive-article-date">
-  	<time datetime="2019-07-22T15:17:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="长短时记忆网络-Long-short-term-memory-network"><a href="#长短时记忆网络-Long-short-term-memory-network" class="headerlink" title="长短时记忆网络(Long short-term memory network)"></a>长短时记忆网络(Long short-term memory network)</h1><p>*LSTM出现的原因：</p>
-<ul>
-<li>有用的信息有大有小，有长又短，循环神经网络性能收到限制。</li>
-</ul>
-<p>*LSTM的作用：<br> 依靠一些“门”的结构让信息有选择性的影响循环神经网络中每个时刻的状态</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/22/The-long-short-term-memory-network-study-notes-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1048,6 +1075,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">c++; array;</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">c++,design mode</a>
               </li>
              
               <li class="article-tag-list-item">

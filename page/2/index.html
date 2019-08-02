@@ -142,6 +142,158 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Link-list-implemented-by-C" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/23/Link-list-implemented-by-C/">Link list implemented by C++</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/23/Link-list-implemented-by-C/" class="archive-article-date">
+  	<time datetime="2019-07-22T16:21:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>Fundation knowledge<br> characteristic:<br> 链表是一种由节点组成的数据结构，每个节点都包含某些信息以及指向链表中另一个节点的指针,用一个变量就能访问整个节点序列。</li>
+</ol>
+<p><strong>【attention】</strong>链表并不是只能通过指针实现，方法有多种，但是最灵活的实现方法是通过指针</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//***************************intSLList.h********************************/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> INTSLLIST_H_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INTSLLIST_H_</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IntSLLNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	IntSLLNode():next(<span class="number">0</span>)&#123;&#125;;</span><br><span class="line">	IntSLLNode(<span class="keyword">int</span> el, IntSLLNode* ptr = <span class="number">0</span>) :info(el), next(ptr)&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:	</span><br><span class="line">	<span class="keyword">int</span> info;</span><br><span class="line">	IntSLLNode *next;</span><br><span class="line">	<span class="comment">//	friend class IntSLLList;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IntSLLList</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	IntSLLList():head(<span class="number">0</span>), tail(<span class="number">0</span>)&#123;&#125;;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">addToHead</span><span class="params">(<span class="keyword">int</span> el)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">addToTail</span><span class="params">(<span class="keyword">int</span> el)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">deleteFromHead</span><span class="params">()</span></span>;	<span class="comment">//delete node and return its values</span></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">deleteFromTail</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(<span class="keyword">int</span> el)</span></span>;	</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">isInList</span><span class="params">(<span class="keyword">int</span> el)</span></span>;	<span class="comment">//judge whether the node is in the linked list</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	IntSLLNode *head,*tail;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//********************************initSLList.cpp***********************************//</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"intSLList.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> IntSLLList::addToHead(<span class="keyword">int</span> el)</span><br><span class="line">&#123;</span><br><span class="line">	head = <span class="keyword">new</span> IntSLLNode(el,head);	<span class="comment">//头部指针移位</span></span><br><span class="line">	<span class="keyword">if</span> (tail == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		tail = head;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> IntSLLList::addToTail(<span class="keyword">int</span> el)</span><br><span class="line">&#123;	</span><br><span class="line">	<span class="keyword">if</span> (tail == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		tail = <span class="keyword">new</span> IntSLLNode(el);</span><br><span class="line">		head = tail;</span><br><span class="line">	&#125;</span><br><span class="line">	tail-&gt;next = <span class="keyword">new</span> IntSLLNode(el);</span><br><span class="line">	tail = tail-&gt;next;		<span class="comment">//尾部指针移位</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> IntSLLList::deleteFromHead()</span><br><span class="line">&#123;	</span><br><span class="line">	<span class="keyword">int</span> el = head-&gt;info;</span><br><span class="line">	IntSLLNode *tmp = head-&gt;next; <span class="comment">//create a temporary variable to save second node</span></span><br><span class="line">	<span class="keyword">if</span> (head == tail)</span><br><span class="line">	&#123;</span><br><span class="line">		head = tail = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">delete</span> head;	<span class="comment">//here just delete data, the point name still exists;  </span></span><br><span class="line">	&#125;</span><br><span class="line">	head = tmp;</span><br><span class="line">	<span class="keyword">return</span> el;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> IntSLLList::deleteFromTail()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> el = tail-&gt;info;</span><br><span class="line">	<span class="keyword">if</span> (tail == head)</span><br><span class="line">	&#123;</span><br><span class="line">		tail = head = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (IntSLLNode *i = head; i != tail;i=i-&gt;next)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (i-&gt;next == tail)</span><br><span class="line">			&#123;	</span><br><span class="line">				IntSLLNode *tmp = tail;</span><br><span class="line">				tail = i;	<span class="comment">//tail points to second last node</span></span><br><span class="line">				<span class="keyword">delete</span> tmp;	<span class="comment">//delete last node</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> el;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> IntSLLList::deleteNode(<span class="keyword">int</span> el)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span> (head!=<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (tail == head &amp;&amp; head-&gt;info == el)	<span class="comment">//linked list only has one node and is be selected</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">delete</span> head;</span><br><span class="line">			head = tail = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			IntSLLNode *pred;</span><br><span class="line">			<span class="keyword">for</span> (pred = head; pred != tail;pred=pred-&gt;next)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span> (pred-&gt;info == el &amp;&amp; pred == head)		<span class="comment">//first node</span></span><br><span class="line">				&#123;</span><br><span class="line">					IntSLLNode *tmp = head-&gt;next;</span><br><span class="line">					<span class="keyword">delete</span> head;</span><br><span class="line">					head = tmp;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (pred-&gt;next-&gt;info==el &amp;&amp; pred-&gt;next == tail)	<span class="comment">//last node</span></span><br><span class="line">				&#123;</span><br><span class="line">					tail = pred;</span><br><span class="line">					<span class="keyword">delete</span> tail-&gt;next;</span><br><span class="line">					tail-&gt;next = <span class="number">0</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">				&#123;</span><br><span class="line">					<span class="keyword">if</span> (pred-&gt;next-&gt;info == el)		<span class="comment">//node among the list</span></span><br><span class="line">					&#123;</span><br><span class="line">						IntSLLNode *tmp = pred-&gt;next-&gt;next;</span><br><span class="line">						<span class="keyword">delete</span> pred-&gt;next;</span><br><span class="line">						pred-&gt;next = tmp;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> IntSLLList::isInList(<span class="keyword">int</span> el)</span><br><span class="line">&#123;</span><br><span class="line">	IntSLLNode *tmp = head;</span><br><span class="line">	<span class="keyword">for</span> (tmp; tmp != tail-&gt;next; tmp = tmp-&gt;next)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (tmp-&gt;info == el)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//******************************main.cpp*****************************************//</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"intSLList.h"</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//primary realization single linked list </span></span><br><span class="line">	IntSLLNode *head = <span class="keyword">new</span> IntSLLNode(<span class="number">10</span>);</span><br><span class="line">	head-&gt;next = <span class="keyword">new</span> IntSLLNode(<span class="number">20</span>);</span><br><span class="line">	head-&gt;next-&gt;next = <span class="keyword">new</span> IntSLLNode(<span class="number">30</span>);</span><br><span class="line">	head-&gt;next-&gt;next-&gt;next = <span class="keyword">new</span> IntSLLNode(<span class="number">40</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//create a new class to operate single linked list</span></span><br><span class="line">	IntSLLList my_list;</span><br><span class="line">	my_list.addToHead(<span class="number">20</span>);</span><br><span class="line">	my_list.addToHead(<span class="number">10</span>);</span><br><span class="line">	my_list.addToTail(<span class="number">30</span>);</span><br><span class="line">	my_list.addToTail(<span class="number">40</span>);</span><br><span class="line">	my_list.deleteNode(<span class="number">30</span>);</span><br><span class="line">	<span class="keyword">if</span> (my_list.isInList(<span class="number">40</span>))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"数据存在"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"数据不存在"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/23/Link-list-implemented-by-C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C-有关类的虚构函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/23/C-有关类的虚构函数/">(C++)有关类的虚构函数</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/23/C-有关类的虚构函数/" class="archive-article-date">
+  	<time datetime="2019-07-22T16:17:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h2><p>1.当在栈区创建一个类的对象的时候，会自动执行其构造函数，当函数代码块结束（经测试：不包括main函数结束），会自动执行其类的虚构函数。<br>2.当在堆中new出一个类的对象的时候，会自动执行其构造函数。但是函数代码块执行完毕，并不会掉用其析构函数。其析构函数执行必须经过delete来完成。但是在继承方面，倘若new一个派生类的对象，这个对象通过基类的指针指向这个无名的对派生类对象时，delete这个指针释放内存并不会执行子类的析构函数，而是仅仅执行基类的析构函数，这就将导致内存泄漏了。因此解决办法是将基类的构造函数设置为虚函数，因此当你通过delete访问基类的虚构函数，先会访问子类的虚构函数，这样就能完美释放所有类的对象占用的内存了。<br>【注】：<br>经过测试，在mac上面当我用基类的指针指向派生类new的对象竟然编译无法通过，或许这是一件值得庆幸的事情。</p>
+<p>以下是测试代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//******************Base.hpp************************//</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> Base_hpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Base_hpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="title">Base</span><span class="params">()</span></span>&#123; <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Base constrctor has been started!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line">    ~Base()&#123;<span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Base destructor has been started!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Drived</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="title">Drived</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Derived constrctor has been started!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ~Drived()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"Derived destrctor has been started!"</span>&lt;&lt;<span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* Base_hpp */</span></span></span><br></pre></td></tr></table></figure>
+
+<p>以下是主函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  main.cpp</span></span><br><span class="line"><span class="comment">//  destructor_demo</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by joey on 2018/12/1.</span></span><br><span class="line"><span class="comment">//  Copyright © 2018 joey. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"Base.hpp"</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_destruc</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// insert code here...</span></span><br><span class="line">    test_destruc();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_destruc</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Base *p0 = <span class="keyword">new</span> Base();</span><br><span class="line">    Drived *p = <span class="keyword">new</span> Drived();		</span><br><span class="line">    Base *p2 = <span class="keyword">new</span> Drived();		<span class="comment">//编译报错</span></span><br><span class="line">    <span class="keyword">delete</span> p0;</span><br><span class="line">    <span class="keyword">delete</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/23/C-有关类的虚构函数/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-K-fold-Cross-Validation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -565,7 +717,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Leetcode; vector</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">c++; array;</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++; STL; Iterator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,15 +741,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++; STL; Iterator</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">个人简历</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
             
             <div class="clearfix"></div>

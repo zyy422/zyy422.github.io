@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>K-fold Cross Validation | 周逸的个人blog</title>
+  <title>Symmetric Tree (LeetCode: No. 101) | 周逸的个人blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="交叉验证后概念： 将原始数据（dataset）进行分组，一部分做为训练集来训练模型，另一部分做为测试集来评价模型。  使用优点：  1.交叉验证用于评估模型的预测性能，尤其是训练好的模型在新数据上的表现，可以在一定程度上减小过拟合。 2.可以从有限的数据中获取尽可能多的有效信息。  k-fold cross validation method:  不重复抽样将原始数据随机分为 k 份。 每一次挑选">
+  <meta name="description" content="Problem:Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center). My Solution: 1234567891011121314151617181920212223242526272829303132333435363738394041/** * Defin">
+<meta name="keywords" content="Binary Tree; Recursion; Inorder traversal">
 <meta property="og:type" content="article">
-<meta property="og:title" content="K-fold Cross Validation">
-<meta property="og:url" content="http://yoursite.com/2019/07/22/K-fold-Cross-Validation/index.html">
+<meta property="og:title" content="Symmetric Tree (LeetCode: No. 101)">
+<meta property="og:url" content="http://yoursite.com/2019/08/03/Symmetric-Tree-LeetCode-No-101/index.html">
 <meta property="og:site_name" content="周逸的个人blog">
-<meta property="og:description" content="交叉验证后概念： 将原始数据（dataset）进行分组，一部分做为训练集来训练模型，另一部分做为测试集来评价模型。  使用优点：  1.交叉验证用于评估模型的预测性能，尤其是训练好的模型在新数据上的表现，可以在一定程度上减小过拟合。 2.可以从有限的数据中获取尽可能多的有效信息。  k-fold cross validation method:  不重复抽样将原始数据随机分为 k 份。 每一次挑选">
+<meta property="og:description" content="Problem:Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center). My Solution: 1234567891011121314151617181920212223242526272829303132333435363738394041/** * Defin">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-23T03:34:44.407Z">
+<meta property="og:updated_time" content="2019-08-03T04:08:53.246Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="K-fold Cross Validation">
-<meta name="twitter:description" content="交叉验证后概念： 将原始数据（dataset）进行分组，一部分做为训练集来训练模型，另一部分做为测试集来评价模型。  使用优点：  1.交叉验证用于评估模型的预测性能，尤其是训练好的模型在新数据上的表现，可以在一定程度上减小过拟合。 2.可以从有限的数据中获取尽可能多的有效信息。  k-fold cross validation method:  不重复抽样将原始数据随机分为 k 份。 每一次挑选">
+<meta name="twitter:title" content="Symmetric Tree (LeetCode: No. 101)">
+<meta name="twitter:description" content="Problem:Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center). My Solution: 1234567891011121314151617181920212223242526272829303132333435363738394041/** * Defin">
   
     <link rel="alternative" href="/atom.xml" title="周逸的个人blog" type="application/atom+xml">
   
@@ -144,43 +145,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-K-fold-Cross-Validation" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Symmetric-Tree-LeetCode-No-101" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      K-fold Cross Validation
+      Symmetric Tree (LeetCode: No. 101)
     </h1>
   
 
         
-        <a href="/2019/07/22/K-fold-Cross-Validation/" class="archive-article-date">
-  	<time datetime="2019-07-22T15:29:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
+        <a href="/2019/08/03/Symmetric-Tree-LeetCode-No-101/" class="archive-article-date">
+  	<time datetime="2019-08-03T04:05:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="交叉验证后概念："><a href="#交叉验证后概念：" class="headerlink" title="交叉验证后概念："></a>交叉验证后概念：</h3><ul>
-<li>将原始数据（dataset）进行分组，一部分做为训练集来训练模型，另一部分做为测试集来评价模型。</li>
-</ul>
-<p><strong>使用优点</strong>：</p>
-<ul>
-<li>1.交叉验证用于评估模型的预测性能，尤其是训练好的模型在新数据上的表现，可以在一定程度上减小过拟合。</li>
-<li>2.可以从有限的数据中获取尽可能多的有效信息。</li>
-</ul>
-<p><strong>k-fold cross validation method:</strong></p>
-<ol>
-<li>不重复抽样将原始数据随机分为 k 份。</li>
-<li>每一次挑选其中 1 份作为测试集，剩余 k-1 份作为训练集用于模型训练。</li>
-<li>重复第二步 k 次，这样每个子集都有一次机会作为测试集，其余机会作为训练集。</li>
-<li>在每个训练集上训练后得到一个模型在每个训练集上训练后得到一个模型</li>
-<li>用这个模型在相应的测试集上测试，计算并保存模型的评估指标</li>
-<li>计算 k 组测试结果的平均值作为模型精度的估计，并作为当前 k 折交叉验证下模型的性能指标</li>
-</ol>
+        <p><strong>Problem:</strong><br>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p>
+<p>My Solution:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSymmetric</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; result_1, result_2;</span><br><span class="line">        inorder_left(root, result_1);</span><br><span class="line">        inorder_right(root, result_2);</span><br><span class="line">        <span class="keyword">if</span> (result_1 == result_2)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">inorder_left</span><span class="params">(TreeNode* root, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; result)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;left != <span class="literal">NULL</span>)</span><br><span class="line">            inorder_left(root-&gt;left, result);</span><br><span class="line">        result.push_back(<span class="number">0</span>);</span><br><span class="line">        result.push_back(root-&gt;val);</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;right != <span class="literal">NULL</span>)</span><br><span class="line">            inorder_left(root-&gt;right, result);</span><br><span class="line">        result.push_back(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">inorder_right</span><span class="params">(TreeNode* root, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; result)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;right != <span class="literal">NULL</span>)</span><br><span class="line">            inorder_right(root-&gt;right, result);</span><br><span class="line">        result.push_back(<span class="number">0</span>);</span><br><span class="line">        result.push_back(root-&gt;val);</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;left != <span class="literal">NULL</span>)</span><br><span class="line">            inorder_right(root-&gt;left, result);</span><br><span class="line">        result.push_back(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -215,6 +203,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Binary Tree; Recursion; Inorder traversal</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -265,7 +264,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/22/K-fold-Cross-Validation/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/03/Symmetric-Tree-LeetCode-No-101/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -279,18 +278,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/23/C-有关类的虚构函数/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (C++)有关类的虚构函数
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/22/The-long-short-term-memory-network-study-notes-1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">The long short-term memory network (study notes)</div>
+    <a href="/2019/08/02/Maximum-Subarray-Leetcode-53/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Maximum Subarray (Leetcode: 53)</div>
       <i class="icon-circle-right"></i>
     </a>
   

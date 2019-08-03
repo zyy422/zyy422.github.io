@@ -142,6 +142,108 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Apache部署FLASK-web-基于windows" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/23/Apache部署FLASK-web-基于windows/">Apache部署FLASK web(基于windows)</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/23/Apache部署FLASK-web-基于windows/" class="archive-article-date">
+  	<time datetime="2019-07-22T16:22:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>需求：</strong></p>
+<ul>
+<li>1.下载apache2.4(版本：win32 vc15)    <a href="https://www.apachelounge.com/download/" target="_blank" rel="noopener">apache vc15版本</a></li>
+<li>2.下载mod_wsgi模块,不然pip安装不上(要与apache以及python版本对应: mod_wsgi‑4.6.5+ap24vc15‑cp37‑cp37m‑win_amd32.whl)<br>链接：<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#mod_wsgi" target="_blank" rel="noopener">下载地址</a></li>
+<li>3.python(版本：3.7 32位)</li>
+</ul>
+<p><strong>步骤：</strong></p>
+<ul>
+<li><p>1.安装( pip install mod_wsgi‑4.6.5+ap24vc15‑cp37‑cp37m‑win_amd32.whl)</p>
+</li>
+<li><p>2.继续执行命令： mod_wsgi-express module-config</p>
+</li>
+<li><p>3.将三行执行结果复制到httpd.conf中，看位置添加</p>
+</li>
+<li><p>4.进入Apache24/conf/httpd.conf,编辑：<br>  Define SRVROOT “D:\apache\Apache24”（即改为安装目录）</p>
+</li>
+<li><p>5.找位置添加web app相关的路径配置等：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:5000 &gt;			//注意此处修改为需要设定的端口号</span><br><span class="line">ServerAdmin example@xx.com</span><br><span class="line">DocumentRoot C:\Users\Administrator\Desktop\webDev\optorun_helper</span><br><span class="line">&lt;Directory &quot;C:\Users\Administrator\Desktop\webDev\optorun_helper&quot;&gt;</span><br><span class="line">Order allow,deny</span><br><span class="line">Allow from all</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line">WSGIScriptAlias / C:\Users\Administrator\Desktop\webDev\optorun_helper\test.wsgi</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong>以上所有的路径都是flask项目的根目录，test.wsgi为具体的配置wsgi文件。</p>
+<ul>
+<li>6.在flask项目文件夹下创建一个test.wsgi文件，然后编辑如下代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"> </span><br><span class="line"><span class="comment">#Expand Python classes path with your app's path</span></span><br><span class="line">sys.path.insert(<span class="number">0</span>, <span class="string">"C:\\Users\\Administrator\\Desktop\\webDev\\optorun_helper"</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">from</span> app <span class="keyword">import</span> app</span><br><span class="line"> </span><br><span class="line"><span class="comment">#Put logging code (and imports) here ...</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#Initialize WSGI app object</span></span><br><span class="line">application = app</span><br></pre></td></tr></table></figure>
+
+<p>注意系统路径为两个反斜杠，以防转义符号使得路径不识别（此问题解决了很久）。</p>
+<ul>
+<li>7.让局域网用户可以访问：<br>找到apache配置文件httpd.conf，找到配置：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;directory /&gt;</span><br><span class="line">    options followsymlinks</span><br><span class="line">    allowoverride none</span><br><span class="line">    order deny,allow</span><br><span class="line">    deny from all</span><br><span class="line">&lt;/directory&gt;</span><br></pre></td></tr></table></figure>
+
+<p>将最后一个deny from all修改成allow from all</p>
+<ul>
+<li>8.更改端口号：<br>找到配置代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#Listen 12.34.56.78:80</span><br><span class="line">Listen 5000</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>改变Listen 为防火墙已经打开的端口号，不然其他用户不能访问。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/23/Apache部署FLASK-web-基于windows/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Link-list-implemented-by-C" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -718,6 +820,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Leetcode; vector</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Binary Tree; Recursion; Inorder traversal</a>
               </li>
              
               <li class="article-tag-list-item">

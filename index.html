@@ -142,6 +142,143 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-递归算法学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/05/递归算法学习笔记/">递归算法学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/05/递归算法学习笔记/" class="archive-article-date">
+  	<time datetime="2019-08-05T13:33:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/05/递归算法学习笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-LeetCode-No-206-Reverse-link-list-by-recurison" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/05/LeetCode-No-206-Reverse-link-list-by-recurison/">(LeetCode: No. 206)Reverse link list by recurison</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/05/LeetCode-No-206-Reverse-link-list-by-recurison/" class="archive-article-date">
+  	<time datetime="2019-08-05T11:18:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h2><pre><code>链表的反转问题可以通过迭代和递归两种方式，迭代很直观没有什么可说的。这里记录一下递归问题的一些要点，花了5个小时才想明白这个递归算法的执行流程。</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function">ListNode* <span class="title">reverse_list</span><span class="params">(ListNode* head)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(head == <span class="literal">NULL</span> || head-&gt;next == <span class="literal">NULL</span>)</span><br><span class="line">			<span class="keyword">return</span> head;</span><br><span class="line">		ListNode* p_head = reverse_list(head-&gt;next);	<span class="comment">//此处的p_head在最后一次递归的时候获得原链表的尾部指针，在后面的回收栈的过程中p_head一直往前传递。</span></span><br><span class="line">		head-&gt;next-&gt;next = head;			<span class="comment">//将当前指针的地址丢给下一个节点(head-&gt;next)中的**next变量**中</span></span><br><span class="line">		head-&gt;next = <span class="literal">NULL</span>;				<span class="comment">//断开指针</span></span><br><span class="line">		<span class="keyword">return</span> p_head;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">recurison; link list</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/05/LeetCode-No-206-Reverse-link-list-by-recurison/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Symmetric-Tree-LeetCode-No-101" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -804,147 +941,6 @@
 
 
   
-    <article id="post-Vector-C" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/23/Vector-C/">Vector(C++)</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/23/Vector-C/" class="archive-article-date">
-  	<time datetime="2019-07-22T16:25:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>Highlight:</strong></p>
-<ol>
-<li>支持随机访问通过操作符[]</li>
-<li>声明时大小必须指定</li>
-<li>不可以增删元素</li>
-</ol>
-<p><strong>1.概念：</strong><br>    容器Array在声明时必须初始化指定其大小，不可以改变元素的个数，只能改变元素的数值。Array可以允许随机访问，指定响应的索引通过操作符[]可访问任意一个元素。<br>    以下代码为设定一个大小8个string类型的容器：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;array&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">array</span>&lt;<span class="built_in">string</span>,8&gt; myStr = &#123; <span class="string">"Hello"</span>, <span class="string">"World"</span> &#125;;	<span class="comment">//未传参数会调用string对象的默认构造函数</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; myStr.size();i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">": "</span> &lt;&lt; myStr[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/23/Vector-C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Foward-list-implemented-by-C" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/23/Foward-list-implemented-by-C/">Foward list implemented by C++</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/23/Foward-list-implemented-by-C/" class="archive-article-date">
-  	<time datetime="2019-07-22T16:24:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>Concept:</strong></p>
-<ul>
-<li>Forward list 由c++ 11之后提供，官方解释为一个受限的list，不支持“后退移动”或“效率低下”的操作。需要删除元素，必须位于删除元素的前一个位置上，意味着只有直接前驱决定新的后继元素。生产出来目的应该是为了效率和个别化的需求；</li>
-<li>不支持操作符[]；</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;forward_list&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	forward_list&lt;double&gt; myNum = &#123; 1, 2, 5, 3, 5.3, 1, 45, 8, 3, 3 &#125;;</span><br><span class="line">	myNum.push_front(85);</span><br><span class="line">	myNum.resize(20);	//在尾部插入20-myNum.size()个0，指的注意的是这种操作效率很低劣（array不提供resize()，其他容器几乎都会提供）</span><br><span class="line">	myNum.resize(21,9.5)		//改变元素的个数，数量增长的元素全为9.5</span><br><span class="line">	for (auto element : myNum)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%f \n&quot;,element);</span><br><span class="line">	&#125;</span><br><span class="line">	myNum.pop_front();</span><br><span class="line">	cout &lt;&lt; &quot;This is sequences after operation:&quot; &lt;&lt; endl;</span><br><span class="line">	for (auto element : myNum)	//类似于python中for语句遍历对象中的每一个元素。</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%f \n&quot;, element);</span><br><span class="line">	&#125;</span><br><span class="line">	system(&quot;pause&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>以上这段代码初始化了一个forward_list，并且支持头部push元素以及头部pop元素，不支持尾部的push以及pop。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/23/Foward-list-implemented-by-C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1062,15 +1058,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">c++,design mode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">c++; STL; Iterator</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">c++,design mode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">个人简历</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">recurison; link list</a>
               </li>
             
             <div class="clearfix"></div>

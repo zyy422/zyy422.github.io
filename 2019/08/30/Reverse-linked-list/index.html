@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Reverse linked list | 周逸的个人blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="12345678910111213141516171819class Solution &amp;#123;public:    ListNode* reverseList(ListNode* head) &amp;#123;        ListNode* p_node = head;        ListNode* p_prev = nullptr;        ListNode* p_head = n">
+  <meta name="description" content="链表翻转的迭代实现：12345678910111213141516171819class Solution &amp;#123;public:    ListNode* reverseList(ListNode* head) &amp;#123;        ListNode* p_node = head;        ListNode* p_prev = nullptr;        ListNode*">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Reverse linked list">
 <meta property="og:url" content="http://yoursite.com/2019/08/30/Reverse-linked-list/index.html">
 <meta property="og:site_name" content="周逸的个人blog">
-<meta property="og:description" content="12345678910111213141516171819class Solution &amp;#123;public:    ListNode* reverseList(ListNode* head) &amp;#123;        ListNode* p_node = head;        ListNode* p_prev = nullptr;        ListNode* p_head = n">
+<meta property="og:description" content="链表翻转的迭代实现：12345678910111213141516171819class Solution &amp;#123;public:    ListNode* reverseList(ListNode* head) &amp;#123;        ListNode* p_node = head;        ListNode* p_prev = nullptr;        ListNode*">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-30T02:07:48.277Z">
+<meta property="og:updated_time" content="2019-08-30T07:29:00.806Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reverse linked list">
-<meta name="twitter:description" content="12345678910111213141516171819class Solution &amp;#123;public:    ListNode* reverseList(ListNode* head) &amp;#123;        ListNode* p_node = head;        ListNode* p_prev = nullptr;        ListNode* p_head = n">
+<meta name="twitter:description" content="链表翻转的迭代实现：12345678910111213141516171819class Solution &amp;#123;public:    ListNode* reverseList(ListNode* head) &amp;#123;        ListNode* p_node = head;        ListNode* p_prev = nullptr;        ListNode*">
   
     <link rel="alternative" href="/atom.xml" title="周逸的个人blog" type="application/atom+xml">
   
@@ -164,10 +164,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode* p_node = head;</span><br><span class="line">        ListNode* p_prev = <span class="literal">nullptr</span>;</span><br><span class="line">        ListNode* p_head = <span class="literal">nullptr</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (p_node != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            ListNode* p_next = p_node-&gt;next;</span><br><span class="line">            <span class="keyword">if</span> (p_next == <span class="literal">nullptr</span>) </span><br><span class="line">                p_head = p_node;</span><br><span class="line">            p_node-&gt;next = p_prev;      <span class="comment">//这个是迭代过程的关键操作。  </span></span><br><span class="line">            </span><br><span class="line">            p_prev = p_node;            <span class="comment">//将这个节点的地址变量赋值给上一个节点;</span></span><br><span class="line">            p_node = p_next;            <span class="comment">//下一个节点的地址赋值给这个节点</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p_head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h2 id="链表翻转的迭代实现："><a href="#链表翻转的迭代实现：" class="headerlink" title="链表翻转的迭代实现："></a>链表翻转的迭代实现：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode* p_node = head;</span><br><span class="line">        ListNode* p_prev = <span class="literal">nullptr</span>;</span><br><span class="line">        ListNode* p_head = <span class="literal">nullptr</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (p_node != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            ListNode* p_next = p_node-&gt;next;</span><br><span class="line">            <span class="keyword">if</span> (p_next == <span class="literal">nullptr</span>) </span><br><span class="line">                p_head = p_node;</span><br><span class="line">            p_node-&gt;next = p_prev;      <span class="comment">//这个是迭代过程的关键操作。  </span></span><br><span class="line">            </span><br><span class="line">            p_prev = p_node;            <span class="comment">//将这个节点的地址变量赋值给上一个节点;</span></span><br><span class="line">            p_node = p_next;            <span class="comment">//下一个节点的地址赋值给这个节点</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p_head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>通过递归的方式反转链表的过程中，每次将上一个节点的地址赋值给当年节点的next变量的地址，这个过程中会导致<br>当前节点的下一个节点的地址丢失。因此，在每次递归过程中都要新创建一个变量来存放下一个节点的地址。</p>
-
+<h2 id="链表翻转的递归实现"><a href="#链表翻转的递归实现" class="headerlink" title="链表翻转的递归实现"></a>链表翻转的递归实现</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode* p_prev = <span class="literal">nullptr</span>;</span><br><span class="line">        ListNode* iter = head;</span><br><span class="line">        helper(p_prev, iter);    </span><br><span class="line">        <span class="keyword">return</span> p_head;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    ListNode* p_head;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">helper</span><span class="params">(ListNode* p_prev, ListNode* iter)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (iter == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            p_head = p_prev;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (p_prev == <span class="literal">nullptr</span>) &#123;                    <span class="comment">//第一次进入递归函数</span></span><br><span class="line">            helper(iter, iter-&gt;next);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;                                  </span><br><span class="line">            helper(p_prev-&gt;next, iter-&gt;next);</span><br><span class="line">        &#125;</span><br><span class="line">        iter-&gt;next = p_prev;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -393,11 +393,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+                <a href="javascript:void(0)" class="js-tag color1">recurison; link list</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">recurison; link list</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -405,11 +405,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c++; array;</a>
+                <a href="javascript:void(0)" class="js-tag color1">c++,design mode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Binary Tree; Recursion; Inorder traversal</a>
+                <a href="javascript:void(0)" class="js-tag color2">c++; array;</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -417,7 +417,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">c++,design mode</a>
+                <a href="javascript:void(0)" class="js-tag color2">Binary Tree; Recursion; Inorder traversal</a>
               </li>
              
               <li class="article-tag-list-item">

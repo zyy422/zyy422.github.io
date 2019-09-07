@@ -142,6 +142,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-K-fold-Cross-Validation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/22/K-fold-Cross-Validation/">K-fold Cross Validation</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/22/K-fold-Cross-Validation/" class="archive-article-date">
+  	<time datetime="2019-07-22T15:29:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="交叉验证后概念："><a href="#交叉验证后概念：" class="headerlink" title="交叉验证后概念："></a>交叉验证后概念：</h3><ul>
+<li>将原始数据（dataset）进行分组，一部分做为训练集来训练模型，另一部分做为测试集来评价模型。</li>
+</ul>
+<p><strong>使用优点</strong>：</p>
+<ul>
+<li>1.交叉验证用于评估模型的预测性能，尤其是训练好的模型在新数据上的表现，可以在一定程度上减小过拟合。</li>
+<li>2.可以从有限的数据中获取尽可能多的有效信息。</li>
+</ul>
+<p><strong>k-fold cross validation method:</strong></p>
+<ol>
+<li>不重复抽样将原始数据随机分为 k 份。</li>
+<li>每一次挑选其中 1 份作为测试集，剩余 k-1 份作为训练集用于模型训练。</li>
+<li>重复第二步 k 次，这样每个子集都有一次机会作为测试集，其余机会作为训练集。</li>
+<li>在每个训练集上训练后得到一个模型在每个训练集上训练后得到一个模型</li>
+<li>用这个模型在相应的测试集上测试，计算并保存模型的评估指标</li>
+<li>计算 k 组测试结果的平均值作为模型精度的估计，并作为当前 k 折交叉验证下模型的性能指标</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/22/K-fold-Cross-Validation/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-The-long-short-term-memory-network-study-notes-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -498,15 +577,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Binary Tree; Recursion; Inorder traversal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">c++; array;</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">c++; constructors; explicit and implicit</a>
+                <a href="javascript:void(0)" class="js-tag color2">Binary Tree; Recursion; Inorder traversal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,6 +590,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">c++,design mode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">c++; constructors; explicit and implicit</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="周逸的个人blog">
 <meta property="og:description" content="进程/线程模型进程的基本概念允许多个程序同时进入内存并运行，其目的为了提高系统的效率。 并发环境一段时间内，单处理器有两个或两个以上的程序同时处于运行但未结束的状态，并且次序是不确定的  定义：process进程是具有独立功能的程序关于某个数据集合上的一次运动活动，是系统进行d资源分配和调度的独立单位  程序的一次执行结果 正在运行程序的抽象 独立的地址空间 OS通过调度把CPU交给某个进程">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-15T07:56:21.581Z">
+<meta property="og:updated_time" content="2019-09-15T08:12:57.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程的基本概念">
 <meta name="twitter:description" content="进程/线程模型进程的基本概念允许多个程序同时进入内存并运行，其目的为了提高系统的效率。 并发环境一段时间内，单处理器有两个或两个以上的程序同时处于运行但未结束的状态，并且次序是不确定的  定义：process进程是具有独立功能的程序关于某个数据集合上的一次运动活动，是系统进行d资源分配和调度的独立单位  程序的一次执行结果 正在运行程序的抽象 独立的地址空间 OS通过调度把CPU交给某个进程">
@@ -269,6 +269,27 @@
 <li>向父进程返回子进程的pid （pid号）</li>
 </ul>
 <p>attention：fork完成之后，代码一分为二。</p>
+<hr>
+<h2 id="深入理解进程的概念"><a href="#深入理解进程的概念" class="headerlink" title="深入理解进程的概念"></a>深入理解进程的概念</h2><ol>
+<li><p>进程的分类：1. 系统进程（优先级较高）  2. 用户进程</p>
+<pre><code>1. 前台进程（用户打交道）    2.后台进程（打印进程，防火墙，电子邮件的接受） 
+1. cpu密集型进程   2.i/o 密集型进程</code></pre></li>
+<li><p>进程层次结构<br>UNIX进程家族树：init为根（所有进程的祖宗）<br>WINDOWS：地位相同</p>
+</li>
+<li><p>进程与程序的区别</p>
+</li>
+</ol>
+<ul>
+<li>程序是静态，进程是动态的</li>
+<li>进程由生命周期的，程序是长久的</li>
+<li>一个程序可以对应多个进程</li>
+<li>进程具有创建其他程序的功能</li>
+</ul>
+<h3 id="操作系统给每个进程都分配了一个地址空间？？？？怎么理解？？？"><a href="#操作系统给每个进程都分配了一个地址空间？？？？怎么理解？？？" class="headerlink" title="操作系统给每个进程都分配了一个地址空间？？？？怎么理解？？？"></a>操作系统给每个进程都分配了一个地址空间？？？？怎么理解？？？</h3><h3 id="进程映像：进程执行过程中某一瞬间，进程的快照。"><a href="#进程映像：进程执行过程中某一瞬间，进程的快照。" class="headerlink" title="进程映像：进程执行过程中某一瞬间，进程的快照。"></a>进程映像：进程执行过程中某一瞬间，进程的快照。</h3><h3 id="进程上下文切换"><a href="#进程上下文切换" class="headerlink" title="进程上下文切换"></a>进程上下文切换</h3><ul>
+<li>将cpu硬件状态从一个进程换到另一个进程的过程称为上下文切换</li>
+<li>程序运行时，硬件状态保存在cpu上的寄存器中（程序计数器，程序状态寄存器，通用寄存器）</li>
+<li>程序不运行时，这些寄存器的值保存在进程控制块中。</li>
+</ul>
 
       
 
@@ -506,11 +527,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+                <a href="javascript:void(0)" class="js-tag color1">recurison; link list</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">recurison; link list</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,15 +543,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Binary Tree; Recursion; Inorder traversal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">c++; constructors; explicit and implicit</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++; STL; Iterator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,11 +551,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">个人简历</a>
+                <a href="javascript:void(0)" class="js-tag color2">Binary Tree; Recursion; Inorder traversal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++; STL; Iterator</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">个人简历</a>
               </li>
             
             <div class="clearfix"></div>

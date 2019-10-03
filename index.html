@@ -142,6 +142,221 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-线程上下文切换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: 线程上下文切换<br>date: 2019-10-03 10:37:14</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ol>
+<li>什么是上下文切换<br>CPU分配的时间片用完，切换到另一个任务的时候。会保存上一个任务的状态，等到下次再次切换到该任务，就会加载这个状态。</li>
+</ol>
+<ul>
+<li>切出：一个线程被被剥夺处理器的使用权而被暂停运行</li>
+<li>切入：一个线程被系统选中占用处理器开始继续运行</li>
+</ul>
+<ol start="2">
+<li><p>程序计数器<br>程序计数器是一块较小的空间，可以被看作是当前线程所执行代码的行号指示器。在任何一个时刻，一个处理器都会执行一条线程中的指令。为了线程切换后能够恢复到正确的位置，每条线程都有一个独立的程序计数器（不难发现，这是线程私有的）。线程切换需要知道在这之前已经执行到哪条指令，所以需要程序计数器的值。</p>
+</li>
+<li><p>CPU寄存器的状态<br>线程正在进行某个计算的时候被挂起了，下次继续执行的时候需要知道之前挂起时变量的值为多少，因此需要记录CPU寄存器的状态，因此线程上下文切换的时候，需要记录<strong>程序计数器</strong>，<strong>CPU寄存器状态</strong>；</p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/03/线程上下文切换/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Paper-reversion" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/26/Paper-reversion/">Paper reversion</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/26/Paper-reversion/" class="archive-article-date">
+  	<time datetime="2019-09-26T06:48:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="标题部分"><a href="#标题部分" class="headerlink" title="标题部分"></a>标题部分</h3><ul>
+<li>novel可以直接删除，这个词的程度没有达到</li>
+<li>标题上面可以不用完全讲究语法</li>
+</ul>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><ul>
+<li>chaos-based 以及based on 这里会产生重复。第一句话不要跟标题重复，可以直接删掉based</li>
+<li>conditions and parameters of the <strong>chaotic system</strong> 这里具体是什么混沌系统？</li>
+<li>matrix -》 复述:matrices</li>
+<li>步骤里面，不要去用祈使句</li>
+<li><strong>用</strong>某样东西实际上应该用介词，with</li>
+<li>具体说出来提出的是一个什么方案 The proposed ?? method ….</li>
+<li>在无法确定单复数可以加一个情态动词</li>
+<li>摘要中不出现 First, Second, 等连词</li>
+</ul>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li>没必要在摘要中在写一遍</li>
+<li>可以写为什么要写这篇文章</li>
+</ul>
+<h3 id="keywords"><a href="#keywords" class="headerlink" title="keywords"></a>keywords</h3><ul>
+<li>名词</li>
+<li>书的名称，每个首字母都要大写</li>
+</ul>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><ul>
+<li>混沌系统才有初始条件，加密方案不存在</li>
+<li>结论上面，只是说听到提出了一个算法，得到了很好的安全性。但是没有说出在这个领域的贡献</li>
+</ul>
+<h3 id="discussion"><a href="#discussion" class="headerlink" title="discussion"></a>discussion</h3><ul>
+<li>要说明清楚，到底是什么比别人的结果好。说出本质的原因</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/26/Paper-reversion/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CPU-调度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/19/CPU-调度/">CPU 调度</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/19/CPU-调度/" class="archive-article-date">
+  	<time datetime="2019-09-19T08:57:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/19/CPU-调度/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -835,196 +1050,6 @@
 
 
   
-    <article id="post-Reverse-link-list" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/30/Reverse-link-list/">Reverse link list</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/30/Reverse-link-list/" class="archive-article-date">
-  	<time datetime="2019-08-30T02:01:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/30/Reverse-link-list/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-LeetCode-437-Path-Sum-III-About-DFS-knowledegs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/08/LeetCode-437-Path-Sum-III-About-DFS-knowledegs/">(LeetCode: 437) Path Sum III (About DFS knowledegs)</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/08/LeetCode-437-Path-Sum-III-About-DFS-knowledegs/" class="archive-article-date">
-  	<time datetime="2019-08-08T14:42:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/08/LeetCode-437-Path-Sum-III-About-DFS-knowledegs/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-递归算法学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/05/递归算法学习笔记/">递归算法学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/05/递归算法学习笔记/" class="archive-article-date">
-  	<time datetime="2019-08-05T13:33:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="递归函数的特点"><a href="#递归函数的特点" class="headerlink" title="递归函数的特点"></a>递归函数的特点</h2><p>递归函数内部对自身的调用都会导致一个与原问题相似而范围要小的问题。如下所示，实现一个基本的递归函数算法。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">fac</span><span class="params">(<span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Input an integer: "</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;b);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"% d!= ld"</span>, n, fac(n));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">fac</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> f;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span> || n == <span class="number">1</span>)</span><br><span class="line">        f = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        f = n * fac(n<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">return</span> f</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当输入3时，以上代码的输出为：<strong>3! = 6</strong>。 整个递归调用和返回的过程如下图所示。<br><img src="/2019/08/05/递归算法学习笔记/recursion_diagram.png" alt="recursion diagram"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/05/递归算法学习笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1122,11 +1147,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">recurison; link list</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+                <a href="javascript:void(0)" class="js-tag color1">recurison; link list</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1138,11 +1163,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Binary Tree; Recursion; Inorder traversal</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++; STL; Iterator</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">c++,design mode</a>
+                <a href="javascript:void(0)" class="js-tag color2">Binary Tree; Recursion; Inorder traversal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1150,7 +1175,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">个人简历</a>
+                <a href="javascript:void(0)" class="js-tag color1">c++,design mode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1158,7 +1183,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++; STL; Iterator</a>
+                <a href="javascript:void(0)" class="js-tag color5">个人简历</a>
               </li>
             
             <div class="clearfix"></div>

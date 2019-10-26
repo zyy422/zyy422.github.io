@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>系统调用机制 | 周逸的个人blog</title>
+  <title>Tag: c++, CVTE 面经 | 周逸的个人blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="系统调用机制（操作系统为用户提供的接口）系统调用： 用户在编程时候可以调用的操作系统功能 使得CPU从用户态陷入内核态  进程控制  继承通信  文件使用  目录操作  设备管理。。。   系统调用，库函数，API，内核函数应用程序–》c库函数/api函数–〉系统调用–》（进入）内核（真正的处理程序） 系统调用机制的设计 利用硬件给我们的中断异常机制 选择一条特殊指令：引发异常，完成用户态到内核态">
-<meta name="keywords" content="操作系统">
-<meta property="og:type" content="article">
-<meta property="og:title" content="系统调用机制">
-<meta property="og:url" content="http://yoursite.com/2019/09/15/系统调用机制/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="周逸的个人blog">
+<meta property="og:url" content="http://yoursite.com/tags/c-CVTE-面经/index.html">
 <meta property="og:site_name" content="周逸的个人blog">
-<meta property="og:description" content="系统调用机制（操作系统为用户提供的接口）系统调用： 用户在编程时候可以调用的操作系统功能 使得CPU从用户态陷入内核态  进程控制  继承通信  文件使用  目录操作  设备管理。。。   系统调用，库函数，API，内核函数应用程序–》c库函数/api函数–〉系统调用–》（进入）内核（真正的处理程序） 系统调用机制的设计 利用硬件给我们的中断异常机制 选择一条特殊指令：引发异常，完成用户态到内核态">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-15T07:02:44.714Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="系统调用机制">
-<meta name="twitter:description" content="系统调用机制（操作系统为用户提供的接口）系统调用： 用户在编程时候可以调用的操作系统功能 使得CPU从用户态陷入内核态  进程控制  继承通信  文件使用  目录操作  设备管理。。。   系统调用，库函数，API，内核函数应用程序–》c库函数/api函数–〉系统调用–》（进入）内核（真正的处理程序） 系统调用机制的设计 利用硬件给我们的中断异常机制 选择一条特殊指令：引发异常，完成用户态到内核态">
+<meta name="twitter:title" content="周逸的个人blog">
   
     <link rel="alternative" href="/atom.xml" title="周逸的个人blog" type="application/atom+xml">
   
@@ -145,214 +140,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-系统调用机制" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      系统调用机制
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/10/11/C-在main函数之前都做了一些什么？/" class="archive-article-date">
+  	<time datetime="2019-10-11T13:33:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/10/11/C-在main函数之前都做了一些什么？/">C++在main函数之前都做了一些什么？</a>
     </h1>
   
 
-        
-        <a href="/2019/09/15/系统调用机制/" class="archive-article-date">
-  	<time datetime="2019-09-15T06:44:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="系统调用机制（操作系统为用户提供的接口）"><a href="#系统调用机制（操作系统为用户提供的接口）" class="headerlink" title="系统调用机制（操作系统为用户提供的接口）"></a>系统调用机制（操作系统为用户提供的接口）</h2><h3 id="系统调用：-用户在编程时候可以调用的操作系统功能"><a href="#系统调用：-用户在编程时候可以调用的操作系统功能" class="headerlink" title="系统调用： 用户在编程时候可以调用的操作系统功能"></a>系统调用： 用户在编程时候可以调用的操作系统功能</h3><ul>
-<li><p>使得CPU从用户态陷入内核态</p>
-</li>
-<li><p>进程控制</p>
-</li>
-<li><p>继承通信</p>
-</li>
-<li><p>文件使用</p>
-</li>
-<li><p>目录操作</p>
-</li>
-<li><p>设备管理<br>。。。</p>
-</li>
-</ul>
-<h3 id="系统调用，库函数，API，内核函数"><a href="#系统调用，库函数，API，内核函数" class="headerlink" title="系统调用，库函数，API，内核函数"></a>系统调用，库函数，API，内核函数</h3><p>应用程序–》c库函数/api函数–〉系统调用–》（进入）内核（真正的处理程序）</p>
-<h3 id="系统调用机制的设计"><a href="#系统调用机制的设计" class="headerlink" title="系统调用机制的设计"></a>系统调用机制的设计</h3><ul>
-<li>利用硬件给我们的中断异常机制</li>
-<li>选择一条特殊指令：引发异常，完成用户态到内核态的切换（所有的系统调用都是通过这一条指令进来）</li>
-<li>系统调用号和参数：用于区分不能的功能</li>
-<li>系统调用表：存放系统调用服务的入口地址</li>
-</ul>
-<h3 id="参数传递的过程问题"><a href="#参数传递的过程问题" class="headerlink" title="参数传递的过程问题"></a>参数传递的过程问题</h3><p>用户程序的数据如何传入内核</p>
-<ul>
-<li>内核指令自带参数</li>
-<li>在内存中开辟一个专用堆栈区</li>
-<li>通过通用寄存器传递参数（这个是主要的运用的方法）</li>
-</ul>
-<h3 id="系统调用举例"><a href="#系统调用举例" class="headerlink" title="系统调用举例"></a>系统调用举例</h3><p>高级语言-》汇编<br>含有三个参数——————汇编<br>write（1， stringm， 7） —-〉 movel ¥4，。。。。</p>
-<h3 id="系统调用的执行过程"><a href="#系统调用的执行过程" class="headerlink" title="系统调用的执行过程"></a>系统调用的执行过程</h3><ul>
-<li>中断/异常机制</li>
-<li>系统调用总入口程序</li>
-<li>执行系统调用例程</li>
-<li>恢复现场，返回用户程序</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assert/WechatCode.jpeg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">c++, CVTE 面经</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/15/系统调用机制/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/09/15/进程的基本概念/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          进程的基本概念
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/09/13/Reconstruct-binary-tree/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Reconstruct binary tree</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -375,9 +216,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

@@ -142,6 +142,239 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-系统调用机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/15/系统调用机制/">系统调用机制</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/15/系统调用机制/" class="archive-article-date">
+  	<time datetime="2019-09-15T06:44:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="系统调用机制（操作系统为用户提供的接口）"><a href="#系统调用机制（操作系统为用户提供的接口）" class="headerlink" title="系统调用机制（操作系统为用户提供的接口）"></a>系统调用机制（操作系统为用户提供的接口）</h2><h3 id="系统调用：-用户在编程时候可以调用的操作系统功能"><a href="#系统调用：-用户在编程时候可以调用的操作系统功能" class="headerlink" title="系统调用： 用户在编程时候可以调用的操作系统功能"></a>系统调用： 用户在编程时候可以调用的操作系统功能</h3><ul>
+<li><p>使得CPU从用户态陷入内核态</p>
+</li>
+<li><p>进程控制</p>
+</li>
+<li><p>继承通信</p>
+</li>
+<li><p>文件使用</p>
+</li>
+<li><p>目录操作</p>
+</li>
+<li><p>设备管理<br>。。。</p>
+</li>
+</ul>
+<h3 id="系统调用，库函数，API，内核函数"><a href="#系统调用，库函数，API，内核函数" class="headerlink" title="系统调用，库函数，API，内核函数"></a>系统调用，库函数，API，内核函数</h3><p>应用程序–》c库函数/api函数–〉系统调用–》（进入）内核（真正的处理程序）</p>
+<h3 id="系统调用机制的设计"><a href="#系统调用机制的设计" class="headerlink" title="系统调用机制的设计"></a>系统调用机制的设计</h3><ul>
+<li>利用硬件给我们的中断异常机制</li>
+<li>选择一条特殊指令：引发异常，完成用户态到内核态的切换（所有的系统调用都是通过这一条指令进来）</li>
+<li>系统调用号和参数：用于区分不能的功能</li>
+<li>系统调用表：存放系统调用服务的入口地址</li>
+</ul>
+<h3 id="参数传递的过程问题"><a href="#参数传递的过程问题" class="headerlink" title="参数传递的过程问题"></a>参数传递的过程问题</h3><p>用户程序的数据如何传入内核</p>
+<ul>
+<li>内核指令自带参数</li>
+<li>在内存中开辟一个专用堆栈区</li>
+<li>通过通用寄存器传递参数（这个是主要的运用的方法）</li>
+</ul>
+<h3 id="系统调用举例"><a href="#系统调用举例" class="headerlink" title="系统调用举例"></a>系统调用举例</h3><p>高级语言-》汇编<br>含有三个参数——————汇编<br>write（1， stringm， 7） —-〉 movel ¥4，。。。。</p>
+<h3 id="系统调用的执行过程"><a href="#系统调用的执行过程" class="headerlink" title="系统调用的执行过程"></a>系统调用的执行过程</h3><ul>
+<li>中断/异常机制</li>
+<li>系统调用总入口程序</li>
+<li>执行系统调用例程</li>
+<li>恢复现场，返回用户程序</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/15/系统调用机制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Reconstruct-binary-tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/13/Reconstruct-binary-tree/">Reconstruct binary tree</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/13/Reconstruct-binary-tree/" class="archive-article-date">
+  	<time datetime="2019-09-13T01:39:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前序-中序遍历-–-gt-构建二叉树以及得到后续遍历"><a href="#前序-中序遍历-–-gt-构建二叉树以及得到后续遍历" class="headerlink" title="前序+中序遍历 –&gt; 构建二叉树以及得到后续遍历"></a>前序+中序遍历 –&gt; 构建二叉树以及得到后续遍历</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  main.cpp</span></span><br><span class="line"><span class="comment">//  reconstruct_binary_tree</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by joey on 2019/9/13.</span></span><br><span class="line"><span class="comment">//  Copyright © 2019 joey. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode* left;</span><br><span class="line">    TreeNode* right;</span><br><span class="line">    TreeNode(<span class="keyword">int</span> x) : val(x), left&#123;<span class="literal">nullptr</span>&#125;, right(<span class="literal">nullptr</span>) &#123;&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function">TreeNode* <span class="title">build_tree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre_order, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in_order)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (pre_order.size() != in_order.size())    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">if</span> (pre_order.empty() || in_order.empty())  <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    </span><br><span class="line">    TreeNode* root = <span class="keyword">new</span> TreeNode(pre_order[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">int</span> sub_root;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre_left, in_left, pre_right, in_right;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (sub_root = <span class="number">0</span>; sub_root &lt; in_order.size(); sub_root++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (in_order[sub_root] == pre_order[<span class="number">0</span>])    <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sub_root ; i++) &#123;</span><br><span class="line">        in_left.push_back(in_order[i]);</span><br><span class="line">        pre_left.push_back(pre_order[i+<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = sub_root + <span class="number">1</span>; i &lt; in_order.size(); i++) &#123;</span><br><span class="line">        in_right.push_back(in_order[i]);</span><br><span class="line">        pre_right.push_back(pre_order[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    root-&gt;left  = build_tree(pre_left, in_left);</span><br><span class="line">    root-&gt;right = build_tree(pre_right, in_right);</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pre_traversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!root)  <span class="keyword">return</span>;</span><br><span class="line">    </span><br><span class="line">    pre_traversal(root-&gt;left);</span><br><span class="line">    pre_traversal(root-&gt;right);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; root-&gt;val;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre_order = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">8</span>&#125;;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in_order  = &#123;<span class="number">4</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">6</span>&#125;;</span><br><span class="line">    TreeNode* root = build_tree(pre_order, in_order);</span><br><span class="line">    pre_traversal(root);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/13/Reconstruct-binary-tree/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Heap-Sort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/07/Heap-Sort/">Heap Sort</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/07/Heap-Sort/" class="archive-article-date">
+  	<time datetime="2019-09-07T12:14:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Heap-sort"><a href="#Heap-sort" class="headerlink" title="Heap sort"></a>Heap sort</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  main.cpp</span></span><br><span class="line"><span class="comment">//  heap</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by joey on 2019/9/7.</span></span><br><span class="line"><span class="comment">//  Copyright © 2019 joey. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapify</span><span class="params">(<span class="keyword">int</span> tree[], <span class="keyword">int</span> n, <span class="keyword">int</span> i)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build_heap</span><span class="params">(<span class="keyword">int</span> tree[], <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heap_sort</span><span class="params">(<span class="keyword">int</span> tree[], <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// insert code here...</span></span><br><span class="line">    <span class="keyword">int</span> arr[] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>&#125;;</span><br><span class="line">    heap_sort(arr, <span class="number">13</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">12</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; arr[i] &lt;&lt; <span class="built_in">endl</span>;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapify</span><span class="params">(<span class="keyword">int</span> tree[], <span class="keyword">int</span> n, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i &gt; n) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> c1 = <span class="number">2</span> * i + <span class="number">1</span>; <span class="comment">//children 1</span></span><br><span class="line">    <span class="keyword">int</span> c2 = <span class="number">2</span> * i + <span class="number">2</span>; <span class="comment">//children 2</span></span><br><span class="line">    <span class="keyword">int</span> max_i = i;</span><br><span class="line">    <span class="keyword">if</span> (tree[max_i] &lt; tree[c1] &amp;&amp; c1 &lt; n)</span><br><span class="line">        max_i = c1;</span><br><span class="line">    <span class="keyword">if</span> (tree[max_i] &lt; tree[c2] &amp;&amp; c2 &lt; n)</span><br><span class="line">        max_i = c2;</span><br><span class="line">    <span class="keyword">if</span> (max_i != i) &#123;</span><br><span class="line">        swap(tree[max_i], tree[i]);</span><br><span class="line">        heapify(tree, n, max_i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build_heap</span><span class="params">(<span class="keyword">int</span> tree[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = (n - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span> (; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        heapify(tree, n, i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heap_sort</span><span class="params">(<span class="keyword">int</span> tree[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    build_heap(tree, n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        swap(tree[<span class="number">0</span>], tree[i]);</span><br><span class="line">        heapify(tree, i, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="精简实现堆排序"><a href="#精简实现堆排序" class="headerlink" title="精简实现堆排序"></a>精简实现堆排序</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  main.cpp</span></span><br><span class="line"><span class="comment">//  heap_sort03</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by joey on 2019/9/7.</span></span><br><span class="line"><span class="comment">//  Copyright © 2019 joey. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapify</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; tree,<span class="keyword">int</span> n, <span class="keyword">int</span> i)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heap_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; tree, <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// insert code here...</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; arr = &#123;<span class="number">1</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">551</span>,<span class="number">123</span>,<span class="number">123</span>,<span class="number">123</span>,<span class="number">12</span>,<span class="number">412</span>,<span class="number">34</span>,<span class="number">12345</span>,<span class="number">1235</span>,<span class="number">1235</span>,<span class="number">1235</span>,<span class="number">123</span>,<span class="number">4</span>,<span class="number">123</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> n = (<span class="keyword">int</span>)arr.size();</span><br><span class="line">    heap_sort(arr, n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; arr[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapify</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; tree, <span class="keyword">int</span> n, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i &gt; n)    <span class="keyword">return</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> c1 = <span class="number">2</span> * i + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> c2 = <span class="number">2</span> * i + <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> max_i = i;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (tree[i] &lt; tree[c1] &amp;&amp; c1 &lt; n)</span><br><span class="line">        max_i = c1;</span><br><span class="line">    <span class="keyword">if</span> (tree[max_i] &lt; tree[c2] &amp;&amp; c2 &lt; n)</span><br><span class="line">        max_i = c2;</span><br><span class="line">    <span class="keyword">if</span> (max_i != i) &#123;</span><br><span class="line">        swap(tree[i], tree[max_i]);</span><br><span class="line">        heapify(tree, n, max_i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heap_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; tree, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = (n - <span class="number">1</span>) / <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        heapify(tree, n, i);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        swap(tree[<span class="number">0</span>], tree[i]);</span><br><span class="line">        heapify(tree, i, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/07/Heap-Sort/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-quick-sort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -627,235 +860,6 @@
 
 
   
-    <article id="post-Maximum-Subarray-Leetcode-53" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/02/Maximum-Subarray-Leetcode-53/">Maximum Subarray (Leetcode: 53)</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/02/Maximum-Subarray-Leetcode-53/" class="archive-article-date">
-  	<time datetime="2019-08-02T00:44:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Problem-description"><a href="#Problem-description" class="headerlink" title="Problem description"></a>Problem description</h2><p>Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.</p>
-<p>The soluction by Yi Zhou:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> max_val = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=i; j &lt; nums.size(); j++) &#123;</span><br><span class="line">                <span class="keyword">int</span> buf = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> z=i; z &lt;= j; z++) &#123;</span><br><span class="line">                    buf += nums[z];</span><br><span class="line">                    <span class="keyword">if</span> (max_val &lt; buf) &#123;</span><br><span class="line">                        max_val = buf;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max_val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="conclusin"><a href="#conclusin" class="headerlink" title="conclusin"></a>conclusin</h2><p>虽然上述代码可以顺利通过，但是在leetcode中202个案例只通过了200个，第201个显示时间超时。这个暴力迭代法的时间复杂度太高。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Leetcode; vector</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/02/Maximum-Subarray-Leetcode-53/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-c-vector踩坑记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/01/c-vector踩坑记录/">c++ vector踩坑记录</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/01/c-vector踩坑记录/" class="archive-article-date">
-  	<time datetime="2019-08-01T02:34:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/01/c-vector踩坑记录/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-The-conclusion-of-explicit-and-implicit-constructors" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/29/The-conclusion-of-explicit-and-implicit-constructors/">The conclusion of explicit and implicit constructors</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/29/The-conclusion-of-explicit-and-implicit-constructors/" class="archive-article-date">
-  	<time datetime="2019-07-29T14:47:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>  C++在生成对象的过程中，如果类中没有声明，编译器会给我们提供四个东西，也就是</p>
-<ul>
-<li>默认构造函数</li>
-<li>copy构造函数(eg: Class a(b))</li>
-<li>copy ssignment 操作符(eg: Class a = b)</li>
-<li>析构函数<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Empty</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Empty();				<span class="comment">//默认的构造函数</span></span><br><span class="line">	Empty(<span class="keyword">const</span> Empty &amp;rhs);		<span class="comment">//copy构造函数	</span></span><br><span class="line">	Empty&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Empty&amp; rhs);	<span class="comment">//copy assignment 操作符</span></span><br><span class="line">	~Empty();				<span class="comment">//默认析构函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="The-function-of-explicit-keywords"><a href="#The-function-of-explicit-keywords" class="headerlink" title="The function of explicit keywords"></a>The function of explicit keywords</h2><ol>
-<li>对于explicit(显式的声明，仅仅只能用于constructors)，<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">int</span> data;</span><br><span class="line">        B(<span class="keyword">int</span> _data):data(_data)&#123;&#125;</span><br><span class="line">        <span class="comment">//explicit B(int _data):data(_data)&#123;&#125;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    B temp=<span class="number">5</span>;			<span class="comment">//在此处直接将‘5’转换为了B类型的对象，作为参数传入constructors</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;temp.data&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>如上述代码所示，构造函数只有一个int类型的形参，因此在第11行直接调用隐式的构造函数。如果想要防止这种事情发生，可以在构造函数前面加一个explicit，此时编译器就不能通过。<br><strong>注意</strong><br>在c++中implicit（隐式）关键字并不存在，但是默认就是隐式的构造函数。</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><p><a href="https://www.cnblogs.com/xudong-bupt/p/3671972.html" target="_blank" rel="noopener">C++ Explicit Constructors(显式构造函数)</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">c++; constructors; explicit and implicit</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/29/The-conclusion-of-explicit-and-implicit-constructors/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -953,11 +957,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+                <a href="javascript:void(0)" class="js-tag color3">c++, CVTE 面经</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">recurison; link list</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -973,7 +981,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">c++; constructors; explicit and implicit</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++; STL; Iterator</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -981,11 +989,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">c++,design mode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++; STL; Iterator</a>
+                <a href="javascript:void(0)" class="js-tag color1">c++; constructors; explicit and implicit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">recurison; link list</a>
               </li>
              
               <li class="article-tag-list-item">

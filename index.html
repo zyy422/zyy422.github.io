@@ -142,6 +142,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Servlet-notes" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/26/Servlet-notes/">Servlet notes</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/26/Servlet-notes/" class="archive-article-date">
+  	<time datetime="2019-10-26T13:13:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Servlet的运行机制"><a href="#Servlet的运行机制" class="headerlink" title="Servlet的运行机制"></a>Servlet的运行机制</h2><p>servlet就是Java程序，同时这个程序必须也要和Tomcat一起工作，servlet处于Tomcat的管制之下。<strong>注意</strong>，Java程序要编译成class文件才能真正工作，所以Tomcat管理的是class文件。<br>生命周期示意图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">启动Tomcat ---&gt; 生成Servlet对象 ---&gt; 等待浏览器访问 ---&gt; 调用方法 ---&gt; 清楚Servlet方法 ---&gt; 关闭Tomcat。</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/26/Servlet-notes/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java-EE-Introduction" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -164,10 +229,8 @@
       
         <h2 id="What-is-the-Java-EE"><a href="#What-is-the-Java-EE" class="headerlink" title="What is the Java EE?"></a>What is the Java EE?</h2><p>Java EE为企业级应用推出的标准平台，为用户定义了四种容器：Web, Enterprise JavaBean (EJB), 应用程序客户机和Applet，能够帮助开发和部署可移植、健壮、可伸缩且安全的服务器端Java嘤嘤程序。与Java不同，Java EE是一个标准中间件体系结构，目的在于简化和规范分布式多层企业应用系统的开发和部署。Java EE<br>将企业级应用程序划分为多个不同的部分，并且在每一层上定义对应的组建来实现它。典型的Java EE包括四层： 客户层、表示逻辑层（web层）、业务逻辑层和企业信息系统层。</p>
 <h2 id="分层模式概述"><a href="#分层模式概述" class="headerlink" title="分层模式概述"></a>分层模式概述</h2><ol>
-<li><p>层体系架构模式就是应用系统分解成子任务组，其中每一个子任务组处于一个特定的抽象层次上。</p>
-</li>
-<li><p>层模式组成一个层次结构，每一层为上一层进行服务，同时也作为下一层的客户端。</p>
-</li>
+<li>层体系架构模式就是应用系统分解成子任务组，其中每一个子任务组处于一个特定的抽象层次上。</li>
+<li>层模式组成一个层次结构，每一层为上一层进行服务，同时也作为下一层的客户端。</li>
 </ol>
 <h3 id="经典三层结构"><a href="#经典三层结构" class="headerlink" title="经典三层结构"></a>经典三层结构</h3><ul>
 <li>表现层：负责数据的输入接口和输出。</li>
@@ -883,139 +946,6 @@
 
 
   
-    <article id="post-线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/15/线程/">线程</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/15/线程/" class="archive-article-date">
-  	<time datetime="2019-09-15T08:26:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="线程的优势："><a href="#线程的优势：" class="headerlink" title="线程的优势："></a>线程的优势：</h3><ul>
-<li>创建一个新线程话费时间较少</li>
-<li>两个线程之间的切换时间较少</li>
-<li>线程之间的通信无需内核的介入</li>
-</ul>
-<h3 id="线程的基本概念"><a href="#线程的基本概念" class="headerlink" title="线程的基本概念"></a>线程的基本概念</h3><ul>
-<li>线程继承了进程中，cpu的调度单位这一属性</li>
-<li>进程还是资源的拥有者<br>线程: s进程中的一个运行实体，是cpu的调度单位有时将线程成为轻量级进程</li>
-</ul>
-<h3 id="线程的属性"><a href="#线程的属性" class="headerlink" title="线程的属性"></a>线程的属性</h3><ul>
-<li>标识符id</li>
-<li>有状态及转换</li>
-<li>自己的栈指针和栈</li>
-<li>共享所在进程的地址空间和有关资源</li>
-<li>可以创建，撤销另一个线程</li>
-<li>程序开始是以一个单线程运行开始的</li>
-</ul>
-<h2 id="线程机制的实现"><a href="#线程机制的实现" class="headerlink" title="线程机制的实现"></a>线程机制的实现</h2><ul>
-<li>用户级线程</li>
-<li>核心级线程</li>
-<li>混合-两者结合方法</li>
-</ul>
-<ol>
-<li>用户级线程（user level thread）</li>
-</ol>
-<ul>
-<li>在用户空间建立线程库：提供一组管理线程的过程</li>
-<li>运行时系统：完成线程的管理工作（操作，线程表）</li>
-<li>内核管理的还是进程，不知道线程的存在</li>
-<li>线程切换不需要内核态特权</li>
-<li>例子：UNIX</li>
-<li>POSIX</li>
-<li>多线程编程接口，以线程库方式提供给用户</li>
-</ul>
-<p><strong>用户级线程小结</strong></p>
-<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
-<li>线程切换快</li>
-<li>调度算法是应用程序特定的</li>
-<li>用户级线程可以运行在任何操作系统上（只需要线程库）</li>
-</ul>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
-<li>内核只将处理器分配给进程，同一进程的两个线程不能同时运行于两个处理器上。</li>
-<li>大多数系统调用时阻塞的，因此，由于内核阻塞进程，故进程中所有线程也被阻塞。</li>
-</ul>
-<ol start="2">
-<li>核心级线程（Kennel level thread）</li>
-</ol>
-<ul>
-<li>内核管理所有线程管理，并向应用程序提供api。</li>
-<li>内核维护进程和线程的上下文</li>
-<li>线程的切换需要内核支持</li>
-<li>以线程为基础进行调度</li>
-<li>例子：WINDOWS</li>
-</ul>
-<ol start="3">
-<li>混合模型 </li>
-</ol>
-<ul>
-<li>例子：Solaris</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/15/线程/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1117,7 +1047,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java, Java EE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1129,7 +1059,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Leetcode; vector</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1137,7 +1067,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Binary Tree; Recursion; Inorder traversal</a>
+                <a href="javascript:void(0)" class="js-tag color2">Leetcode; vector</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1145,11 +1075,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">c++; constructors; explicit and implicit</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++; STL; Iterator</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++; STL; Iterator</a>
+                <a href="javascript:void(0)" class="js-tag color2">Binary Tree; Recursion; Inorder traversal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1157,15 +1087,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">c++; constructors; explicit and implicit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java, Java EE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">个人简历</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1174,6 +1100,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">个人简历</a>
               </li>
             
             <div class="clearfix"></div>

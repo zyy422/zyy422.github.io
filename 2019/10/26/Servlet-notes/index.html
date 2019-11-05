@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Servlet notes | 周逸的个人blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Servlet的运行机制servlet就是Java程序，同时这个程序必须也要和Tomcat一起工作，servlet处于Tomcat的管制之下。注意，Java程序要编译成class文件才能真正工作，所以Tomcat管理的是class文件。生命周期示意图： 1启动Tomcat ---&amp;gt; 生成Servlet对象 ---&amp;gt; 等待浏览器访问 ---&amp;gt; 调用方法 ---&amp;gt; 清楚Serv">
+  <meta name="description" content="Servlet的运行机制 个人理解：  为了接受前端表单发送过来的信息，使用servlet进行相应的验证，然后返回结果给浏览器。  servlet就是Java程序，同时这个程序必须也要和Tomcat一起工作，servlet处于Tomcat的管制之下。注意，Java程序要编译成class文件才能真正工作，所以Tomcat管理的是class文件。   生命周期示意图： 1启动Tomcat ---&amp;gt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Servlet notes">
 <meta property="og:url" content="http://yoursite.com/2019/10/26/Servlet-notes/index.html">
 <meta property="og:site_name" content="周逸的个人blog">
-<meta property="og:description" content="Servlet的运行机制servlet就是Java程序，同时这个程序必须也要和Tomcat一起工作，servlet处于Tomcat的管制之下。注意，Java程序要编译成class文件才能真正工作，所以Tomcat管理的是class文件。生命周期示意图： 1启动Tomcat ---&amp;gt; 生成Servlet对象 ---&amp;gt; 等待浏览器访问 ---&amp;gt; 调用方法 ---&amp;gt; 清楚Serv">
+<meta property="og:description" content="Servlet的运行机制 个人理解：  为了接受前端表单发送过来的信息，使用servlet进行相应的验证，然后返回结果给浏览器。  servlet就是Java程序，同时这个程序必须也要和Tomcat一起工作，servlet处于Tomcat的管制之下。注意，Java程序要编译成class文件才能真正工作，所以Tomcat管理的是class文件。   生命周期示意图： 1启动Tomcat ---&amp;gt">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-26T13:58:54.018Z">
+<meta property="og:updated_time" content="2019-11-02T08:57:25.611Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Servlet notes">
-<meta name="twitter:description" content="Servlet的运行机制servlet就是Java程序，同时这个程序必须也要和Tomcat一起工作，servlet处于Tomcat的管制之下。注意，Java程序要编译成class文件才能真正工作，所以Tomcat管理的是class文件。生命周期示意图： 1启动Tomcat ---&amp;gt; 生成Servlet对象 ---&amp;gt; 等待浏览器访问 ---&amp;gt; 调用方法 ---&amp;gt; 清楚Serv">
+<meta name="twitter:description" content="Servlet的运行机制 个人理解：  为了接受前端表单发送过来的信息，使用servlet进行相应的验证，然后返回结果给浏览器。  servlet就是Java程序，同时这个程序必须也要和Tomcat一起工作，servlet处于Tomcat的管制之下。注意，Java程序要编译成class文件才能真正工作，所以Tomcat管理的是class文件。   生命周期示意图： 1启动Tomcat ---&amp;gt">
   
     <link rel="alternative" href="/atom.xml" title="周逸的个人blog" type="application/atom+xml">
   
@@ -164,9 +164,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Servlet的运行机制"><a href="#Servlet的运行机制" class="headerlink" title="Servlet的运行机制"></a>Servlet的运行机制</h2><p>servlet就是Java程序，同时这个程序必须也要和Tomcat一起工作，servlet处于Tomcat的管制之下。<strong>注意</strong>，Java程序要编译成class文件才能真正工作，所以Tomcat管理的是class文件。<br>生命周期示意图：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">启动Tomcat ---&gt; 生成Servlet对象 ---&gt; 等待浏览器访问 ---&gt; 调用方法 ---&gt; 清楚Servlet方法 ---&gt; 关闭Tomcat。</span><br></pre></td></tr></table></figure>
+        <h2 id="Servlet的运行机制"><a href="#Servlet的运行机制" class="headerlink" title="Servlet的运行机制"></a>Servlet的运行机制</h2><ul>
+<li><p>个人理解：<br>  为了接受前端表单发送过来的信息，使用servlet进行相应的验证，然后返回结果给浏览器。</p>
+</li>
+<li><p>servlet就是Java程序，同时这个程序必须也要和Tomcat一起工作，servlet处于Tomcat的管制之下。<strong>注意</strong>，Java程序要编译成class文件才能真正工作，所以Tomcat管理的是class文件。</p>
+</li>
+</ul>
+<p>生命周期示意图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">启动Tomcat ---&gt; 生成Servlet对象 ---&gt; 等待浏览器访问 ---&gt; 调用方法 ---&gt; 清除Servlet方法 ---&gt; 关闭Tomcat。</span><br></pre></td></tr></table></figure>
 
+<p>在Java语言基础上，衍生出来的Web后台技术叫做Servlet。Servlet程序是百分之百的Java程序。</p>
+<p>一个页面同时会被很多浏览器访问到，每一次访问，Tomcat都要找一次硬盘中对应的class文件，然后的工作是把class文件变成对象，然后调用其中特定的方法，使得我们写的代码运行起来，访问结束，垃圾回收机制来清楚这个对象。</p>
+<h2 id="编写第一个Servlet"><a href="#编写第一个Servlet" class="headerlink" title="编写第一个Servlet"></a>编写第一个Servlet</h2><ul>
+<li>因为servlet是一个Java的类，它是<strong>被Tomcat创建并调用</strong>的,因此我们就不需要写main方法了，这个main方法由Tomcat负责写，但是我们要写的类（servlet）依托于Tomcat。 **</li>
+</ul>
 
       
 
@@ -406,19 +417,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java, Java EE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java, Java EE</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Linux, OS</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -430,15 +437,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Linux, OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">c++; array;</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">c++; constructors; explicit and implicit</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Binary Tree; Recursion; Inorder traversal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -450,15 +457,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Binary Tree; Recursion; Inorder traversal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vim</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">stack</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color1">stack</a>
               </li>
              
               <li class="article-tag-list-item">

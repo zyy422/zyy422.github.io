@@ -142,6 +142,345 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java中抽象类和接口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/20/Java中抽象类和接口/">Java中抽象类和接口</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/20/Java中抽象类和接口/" class="archive-article-date">
+  	<time datetime="2019-10-20T11:37:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Java-中抽象类和接口的笔记（day01"><a href="#Java-中抽象类和接口的笔记（day01" class="headerlink" title="Java 中抽象类和接口的笔记（day01)"></a>Java 中抽象类和接口的笔记（day01)</h2><ol>
+<li>抽象类中使用abstract修饰方法，因此这个类称之为抽象类,同时类的名称前面需要用abstract关键字修饰.</li>
+<li>抽象方法只有方法名称，没有方法体。（即就是没有实现）</li>
+<li>在抽象类中也可以定义普通的方法。</li>
+<li>既然这个抽象方法在抽象类中没有实现，那么在子类中必须去实现它。</li>
+<li>有抽象方法的类，只能定义成抽象类。不能被实例化，因此构建的目的为了继承。<br>存在的意义是为了子类提供规范统一的设计模板，子类必须实现相关的抽象方法。</li>
+<li>个人心得，这个abstract关键字类似于c++中的virtual关键字。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">abstract</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>;    <span class="comment">// Here is the abstract function.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>##接口##</p>
+<p>概念： 接口是比抽象类更加抽象的一种<strong>模版</strong></p>
+<ol>
+<li>接口只定义规范，不定义具体的实现。</li>
+<li>不需要abstract 以及public关键字。</li>
+<li>接口中只能定义稳定的内容，如常量和抽象方法，java中常量是public static final</li>
+<li>注意：常量在定义的时候尽量进行大些。接口中不存在私有，也就是private</li>
+<li>接口默认是添加了public abstract于函数名前，因此接口中所有的函数必须要在实现接口的类中进行重写。</li>
+<li>接口是允许多继承的（类不允许多继承）<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">A</span>, <span class="title">B</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Goes</span> <span class="keyword">implements</span> <span class="title">Foo1</span>, <span class="title">Foo2</span></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="对象克隆"><a href="#对象克隆" class="headerlink" title="对象克隆"></a>对象克隆</h2><p>在一般情况下，为一个包含对象引用的变量建立副本时，原变量和副本都是指向同一个对象的引用。这说明，任何一个变量改变都会影响另一个变量。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Employee original = <span class="keyword">new</span> Employee(<span class="string">"John Public"</span>, <span class="number">50000</span>);</span><br><span class="line">Employee copy = original;</span><br><span class="line">copy.raiseSalary(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<p>如果希望copy是一个新的对象，它的初始状态与original状态相同，但是之后它们各自会有各自不同的状态，这种情况下就可以用clone方法了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Employee copy = original.clone();</span><br></pre></td></tr></table></figure>
+
+<p>clone这个方法是继承自Object这个类的方法，如果当前对象仅仅只有数据的话，copy没有任何问题，但是当这个对象存在对子类对象的引用的时候，就会出现问题。两个对象都会指向同一个字对象。（浅拷贝）</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/20/Java中抽象类和接口/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Tutorials-to-Vim" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/16/Tutorials-to-Vim/">Tutorials to Vim</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/16/Tutorials-to-Vim/" class="archive-article-date">
+  	<time datetime="2019-10-16T11:37:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Tutorials-to-vim"><a href="#Tutorials-to-vim" class="headerlink" title="Tutorials to vim"></a>Tutorials to vim</h2><ol>
+<li><strong>x</strong>: 删除光标下的文字，</li>
+<li><strong>..</strong>: 执行上次修改的动作</li>
+<li><strong>dd</strong>: 删除整行</li>
+<li><strong>&gt;G</strong>: 增加从当前行到文档末尾处的锁进层级</li>
+<li><strong>$</strong>: 使得光标直接跳到当前行的最末尾</li>
+<li>**g</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/16/Tutorials-to-Vim/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C-在main函数之前都做了一些什么？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/11/C-在main函数之前都做了一些什么？/">C++在main函数之前都做了一些什么？</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/11/C-在main函数之前都做了一些什么？/" class="archive-article-date">
+  	<time datetime="2019-10-11T13:33:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="运行时概述"><a href="#运行时概述" class="headerlink" title="运行时概述"></a>运行时概述</h2><pre><code>任何一个c/c++程序，它的背后都有一套庞大的代码来进行支撑，以使得该程序能够正常运行。这套代码至少包括入口函数，以及依赖的函数构成的函数集合。同时，还应该包括各种标准函数的实现（如字符串，数学运算。。）的实现，一般程序的运行过程如下：</code></pre><ol>
+<li>操作系统创建进程后，把控制权交给程序的入口函数（startEntryPoint), 这个函数往往是运行时库的某个入口函数。</li>
+<li>入口函数对运行库和程序运行环境进行初始化，包括堆， I/O， 线程， 全局构造函数等。</li>
+<li>调用main函数，正式开始执行函数主体。</li>
+<li>执行main函数完毕，返回入口函数，进行清理工作，包括全局变量析构，堆销毁，关闭I/O等等，然后进行系统调用介绍进程.</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">c++, CVTE 面经</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/11/C-在main函数之前都做了一些什么？/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-栈的压入和弹出-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/09/栈的压入和弹出-1/">栈的压入和弹出</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/09/栈的压入和弹出-1/" class="archive-article-date">
+  	<time datetime="2019-10-09T01:17:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="实现一个函数，判断第二个序列是否可能为该栈的弹出序列"><a href="#实现一个函数，判断第二个序列是否可能为该栈的弹出序列" class="headerlink" title="实现一个函数，判断第二个序列是否可能为该栈的弹出序列"></a>实现一个函数，判断第二个序列是否可能为该栈的弹出序列</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsPopOrder</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pushV, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; popV)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = pushV.size();</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; stack_1;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; stack_2;			<span class="comment">// 用于存放栈的弹出顺序，逆序push进去</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i++) &#123;</span><br><span class="line">        stack_2.push(popV[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span>(!<span class="built_in">stack</span>.empty() &amp;&amp; <span class="built_in">stack</span>.top() == stack_2.top())</span><br><span class="line">        &#123;</span><br><span class="line">            stack_1.pop();</span><br><span class="line">            stack_2.pop();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (i &gt; n)	<span class="keyword">break</span>;</span><br><span class="line">  	</span><br><span class="line">	stack_1.push(pushV[i++]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (stack_2.empty())	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span>			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">stack</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/09/栈的压入和弹出-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux-学习笔记（Day-1）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -766,303 +1105,6 @@
 
 
   
-    <article id="post-系统调用机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/15/系统调用机制/">系统调用机制</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/15/系统调用机制/" class="archive-article-date">
-  	<time datetime="2019-09-15T06:44:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="系统调用机制（操作系统为用户提供的接口）"><a href="#系统调用机制（操作系统为用户提供的接口）" class="headerlink" title="系统调用机制（操作系统为用户提供的接口）"></a>系统调用机制（操作系统为用户提供的接口）</h2><h3 id="系统调用：-用户在编程时候可以调用的操作系统功能"><a href="#系统调用：-用户在编程时候可以调用的操作系统功能" class="headerlink" title="系统调用： 用户在编程时候可以调用的操作系统功能"></a>系统调用： 用户在编程时候可以调用的操作系统功能</h3><ul>
-<li><p>使得CPU从用户态陷入内核态</p>
-</li>
-<li><p>进程控制</p>
-</li>
-<li><p>继承通信</p>
-</li>
-<li><p>文件使用</p>
-</li>
-<li><p>目录操作</p>
-</li>
-<li><p>设备管理<br>。。。</p>
-</li>
-</ul>
-<h3 id="系统调用，库函数，API，内核函数"><a href="#系统调用，库函数，API，内核函数" class="headerlink" title="系统调用，库函数，API，内核函数"></a>系统调用，库函数，API，内核函数</h3><p>应用程序–》c库函数/api函数–〉系统调用–》（进入）内核（真正的处理程序）</p>
-<h3 id="系统调用机制的设计"><a href="#系统调用机制的设计" class="headerlink" title="系统调用机制的设计"></a>系统调用机制的设计</h3><ul>
-<li>利用硬件给我们的中断异常机制</li>
-<li>选择一条特殊指令：引发异常，完成用户态到内核态的切换（所有的系统调用都是通过这一条指令进来）</li>
-<li>系统调用号和参数：用于区分不能的功能</li>
-<li>系统调用表：存放系统调用服务的入口地址</li>
-</ul>
-<h3 id="参数传递的过程问题"><a href="#参数传递的过程问题" class="headerlink" title="参数传递的过程问题"></a>参数传递的过程问题</h3><p>用户程序的数据如何传入内核</p>
-<ul>
-<li>内核指令自带参数</li>
-<li>在内存中开辟一个专用堆栈区</li>
-<li>通过通用寄存器传递参数（这个是主要的运用的方法）</li>
-</ul>
-<h3 id="系统调用举例"><a href="#系统调用举例" class="headerlink" title="系统调用举例"></a>系统调用举例</h3><p>高级语言-》汇编<br>含有三个参数——————汇编<br>write（1， stringm， 7） —-〉 movel ¥4，。。。。</p>
-<h3 id="系统调用的执行过程"><a href="#系统调用的执行过程" class="headerlink" title="系统调用的执行过程"></a>系统调用的执行过程</h3><ul>
-<li>中断/异常机制</li>
-<li>系统调用总入口程序</li>
-<li>执行系统调用例程</li>
-<li>恢复现场，返回用户程序</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/15/系统调用机制/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Reconstruct-binary-tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/13/Reconstruct-binary-tree/">Reconstruct binary tree</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/13/Reconstruct-binary-tree/" class="archive-article-date">
-  	<time datetime="2019-09-13T01:39:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前序-中序遍历-–-gt-构建二叉树以及得到后续遍历"><a href="#前序-中序遍历-–-gt-构建二叉树以及得到后续遍历" class="headerlink" title="前序+中序遍历 –&gt; 构建二叉树以及得到后续遍历"></a>前序+中序遍历 –&gt; 构建二叉树以及得到后续遍历</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  main.cpp</span></span><br><span class="line"><span class="comment">//  reconstruct_binary_tree</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by joey on 2019/9/13.</span></span><br><span class="line"><span class="comment">//  Copyright © 2019 joey. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode* left;</span><br><span class="line">    TreeNode* right;</span><br><span class="line">    TreeNode(<span class="keyword">int</span> x) : val(x), left&#123;<span class="literal">nullptr</span>&#125;, right(<span class="literal">nullptr</span>) &#123;&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function">TreeNode* <span class="title">build_tree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre_order, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in_order)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (pre_order.size() != in_order.size())    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">if</span> (pre_order.empty() || in_order.empty())  <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    </span><br><span class="line">    TreeNode* root = <span class="keyword">new</span> TreeNode(pre_order[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">int</span> sub_root;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre_left, in_left, pre_right, in_right;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (sub_root = <span class="number">0</span>; sub_root &lt; in_order.size(); sub_root++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (in_order[sub_root] == pre_order[<span class="number">0</span>])    <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sub_root ; i++) &#123;</span><br><span class="line">        in_left.push_back(in_order[i]);</span><br><span class="line">        pre_left.push_back(pre_order[i+<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = sub_root + <span class="number">1</span>; i &lt; in_order.size(); i++) &#123;</span><br><span class="line">        in_right.push_back(in_order[i]);</span><br><span class="line">        pre_right.push_back(pre_order[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    root-&gt;left  = build_tree(pre_left, in_left);</span><br><span class="line">    root-&gt;right = build_tree(pre_right, in_right);</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pre_traversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!root)  <span class="keyword">return</span>;</span><br><span class="line">    </span><br><span class="line">    pre_traversal(root-&gt;left);</span><br><span class="line">    pre_traversal(root-&gt;right);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; root-&gt;val;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre_order = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">8</span>&#125;;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in_order  = &#123;<span class="number">4</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">6</span>&#125;;</span><br><span class="line">    TreeNode* root = build_tree(pre_order, in_order);</span><br><span class="line">    pre_traversal(root);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/13/Reconstruct-binary-tree/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Heap-Sort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/07/Heap-Sort/">Heap Sort</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/07/Heap-Sort/" class="archive-article-date">
-  	<time datetime="2019-09-07T12:14:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Heap-sort"><a href="#Heap-sort" class="headerlink" title="Heap sort"></a>Heap sort</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  main.cpp</span></span><br><span class="line"><span class="comment">//  heap</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by joey on 2019/9/7.</span></span><br><span class="line"><span class="comment">//  Copyright © 2019 joey. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapify</span><span class="params">(<span class="keyword">int</span> tree[], <span class="keyword">int</span> n, <span class="keyword">int</span> i)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build_heap</span><span class="params">(<span class="keyword">int</span> tree[], <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heap_sort</span><span class="params">(<span class="keyword">int</span> tree[], <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// insert code here...</span></span><br><span class="line">    <span class="keyword">int</span> arr[] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>&#125;;</span><br><span class="line">    heap_sort(arr, <span class="number">13</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">12</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; arr[i] &lt;&lt; <span class="built_in">endl</span>;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapify</span><span class="params">(<span class="keyword">int</span> tree[], <span class="keyword">int</span> n, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i &gt; n) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> c1 = <span class="number">2</span> * i + <span class="number">1</span>; <span class="comment">//children 1</span></span><br><span class="line">    <span class="keyword">int</span> c2 = <span class="number">2</span> * i + <span class="number">2</span>; <span class="comment">//children 2</span></span><br><span class="line">    <span class="keyword">int</span> max_i = i;</span><br><span class="line">    <span class="keyword">if</span> (tree[max_i] &lt; tree[c1] &amp;&amp; c1 &lt; n)</span><br><span class="line">        max_i = c1;</span><br><span class="line">    <span class="keyword">if</span> (tree[max_i] &lt; tree[c2] &amp;&amp; c2 &lt; n)</span><br><span class="line">        max_i = c2;</span><br><span class="line">    <span class="keyword">if</span> (max_i != i) &#123;</span><br><span class="line">        swap(tree[max_i], tree[i]);</span><br><span class="line">        heapify(tree, n, max_i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build_heap</span><span class="params">(<span class="keyword">int</span> tree[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = (n - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span> (; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        heapify(tree, n, i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heap_sort</span><span class="params">(<span class="keyword">int</span> tree[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    build_heap(tree, n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        swap(tree[<span class="number">0</span>], tree[i]);</span><br><span class="line">        heapify(tree, i, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="精简实现堆排序"><a href="#精简实现堆排序" class="headerlink" title="精简实现堆排序"></a>精简实现堆排序</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  main.cpp</span></span><br><span class="line"><span class="comment">//  heap_sort03</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by joey on 2019/9/7.</span></span><br><span class="line"><span class="comment">//  Copyright © 2019 joey. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapify</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; tree,<span class="keyword">int</span> n, <span class="keyword">int</span> i)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heap_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; tree, <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// insert code here...</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; arr = &#123;<span class="number">1</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">551</span>,<span class="number">123</span>,<span class="number">123</span>,<span class="number">123</span>,<span class="number">12</span>,<span class="number">412</span>,<span class="number">34</span>,<span class="number">12345</span>,<span class="number">1235</span>,<span class="number">1235</span>,<span class="number">1235</span>,<span class="number">123</span>,<span class="number">4</span>,<span class="number">123</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> n = (<span class="keyword">int</span>)arr.size();</span><br><span class="line">    heap_sort(arr, n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; arr[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapify</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; tree, <span class="keyword">int</span> n, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i &gt; n)    <span class="keyword">return</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> c1 = <span class="number">2</span> * i + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> c2 = <span class="number">2</span> * i + <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> max_i = i;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (tree[i] &lt; tree[c1] &amp;&amp; c1 &lt; n)</span><br><span class="line">        max_i = c1;</span><br><span class="line">    <span class="keyword">if</span> (tree[max_i] &lt; tree[c2] &amp;&amp; c2 &lt; n)</span><br><span class="line">        max_i = c2;</span><br><span class="line">    <span class="keyword">if</span> (max_i != i) &#123;</span><br><span class="line">        swap(tree[i], tree[max_i]);</span><br><span class="line">        heapify(tree, n, max_i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heap_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; tree, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = (n - <span class="number">1</span>) / <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        heapify(tree, n, i);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        swap(tree[<span class="number">0</span>], tree[i]);</span><br><span class="line">        heapify(tree, i, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/07/Heap-Sort/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-quick-sort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/06/quick-sort/">quick_sort</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/06/quick-sort/" class="archive-article-date">
-  	<time datetime="2019-09-06T15:24:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="三种经典算法的实现（选择，插入，快排）"><a href="#三种经典算法的实现（选择，插入，快排）" class="headerlink" title="三种经典算法的实现（选择，插入，快排）"></a>三种经典算法的实现（选择，插入，快排）</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  main.cpp</span></span><br><span class="line"><span class="comment">//  Test_1</span></span><br><span class="line"><span class="comment">//  三大经典排序算法（快速排序，选择排序，插入排序）</span></span><br><span class="line"><span class="comment">//  Created by joey on 2019/9/6.</span></span><br><span class="line"><span class="comment">//  Copyright © 2019 joey. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;variant&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp;, <span class="keyword">int</span>, <span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">select_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp;)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp;)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// insert code here...</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; store = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">23</span>,<span class="number">124</span>,<span class="number">3</span>,<span class="number">12</span>,<span class="number">35</span>,<span class="number">235</span>,<span class="number">235</span>,<span class="number">21</span>,<span class="number">1</span>,<span class="number">231</span>,<span class="number">5</span>,<span class="number">12</span>,<span class="number">124</span>,<span class="number">-123</span>,<span class="number">123</span>,<span class="number">-46</span>&#125;;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> n = store.size();</span><br><span class="line">    insert_sort(store);</span><br><span class="line">    <span class="comment">//    select_sort(store);</span></span><br><span class="line">    <span class="comment">//    quick_sort(store, 0, n);</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; store[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 快速排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> begin, <span class="keyword">int</span> end)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (begin &gt;= end)   <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> l = begin, r = end, pivot = nums[begin];</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">        <span class="keyword">while</span> (pivot &lt;= nums[r] &amp;&amp; l &lt; r)    r--;</span><br><span class="line">        <span class="keyword">while</span> (pivot &gt;= nums[l] &amp;&amp; l &lt; r)    l++;</span><br><span class="line">        <span class="keyword">if</span> (l &lt; r)  swap(nums[l], nums[r]);</span><br><span class="line">        &#125;</span><br><span class="line">    swap(nums[begin], nums[l]);</span><br><span class="line"></span><br><span class="line">    quick_sort(nums, begin, l<span class="number">-1</span>);</span><br><span class="line">    quick_sort(nums, r+<span class="number">1</span>, end);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 选择排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.size(); i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> min_index = i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;nums.size(); j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[min_index] &gt; nums[j])</span><br><span class="line">            min_index = j;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(nums[i], nums[min_index]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = (<span class="keyword">int</span>)nums.size();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> j = i;</span><br><span class="line">        <span class="keyword">while</span> (nums[j] &lt; nums[j<span class="number">-1</span>]) &#123;</span><br><span class="line">            swap(nums[i], nums[i<span class="number">-1</span>]);</span><br><span class="line">            j--;</span><br><span class="line">            <span class="keyword">if</span> (j == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/06/quick-sort/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1077,7 +1119,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 周逸
+    		&copy; 2020 周逸
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1164,11 +1206,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java, Java EE</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java, Java EE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1176,11 +1218,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Linux, OS</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+                <a href="javascript:void(0)" class="js-tag color5">Linux, OS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1192,27 +1234,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Binary Tree; Recursion; Inorder traversal</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">c++; constructors; explicit and implicit</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">c++,design mode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">c++; STL; Iterator</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">stack</a>
+                <a href="javascript:void(0)" class="js-tag color2">Binary Tree; Recursion; Inorder traversal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1220,11 +1246,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">stack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Travel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">c++,design mode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">c++; constructors; explicit and implicit</a>
               </li>
             
             <div class="clearfix"></div>
